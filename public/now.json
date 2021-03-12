@@ -1,0 +1,15 @@
+{
+    "version": 1,
+    "name": "restaurant-finder",
+    "alias": "laura-restaurant-finder",
+    "routes": [
+        {
+          "src": "^/static/(.*)",
+          "dest": "/static/$1"
+        },
+        {
+          "src": ".*",
+          "dest": "/index.html"
+        }
+      ]
+  }
