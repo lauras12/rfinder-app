@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-//import { faFinder } from '@fortawesome/free-solid-svg-icons';
+import { faIcon } from '@fortawesome/free-solid-svg-icons';
 
 export default function Place(props) {
 
@@ -9,7 +9,7 @@ export default function Place(props) {
         const finds = [];
         for(let i =0; i < props.finds; i++){
             finds.push(<span key={i}>
-                < FontAwesomeIcon icon={fafinder} style={{ color: 'green', padding: '3px' }} />
+                <FontAwesomeIcon icon={["far", "coffee"]} />
             </span>)
         } 
         return(
