@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 export default function ListItem(props) {
-    console.log(props)
+    
     return (
         <li key={props.id}>
             <h2>{props.name}</h2>
@@ -15,7 +15,7 @@ export default function ListItem(props) {
             <img src={props.img} />
             <a href={`${props.website}`}><h2>Visit</h2></a>
             {props.rating}
-            <Link to={`/review/${props.id}`}><button>Create Restaurant review</button></Link>
+            <Link to={`/review/${props.id}`}><button>Create Resturant review</button></Link>
         </li>
     )
 }

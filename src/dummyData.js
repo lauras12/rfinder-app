@@ -18,11 +18,24 @@ const STORE = {
     
     reviews : [
         {
-            id:1,
+            id: 1,
             author: 1,
-            attributes: [],
-            addtionalComments: '',
+            placeId: 'ck6cpc6a100003h5qu7jor4kf',
+            placeName:  "Sienna",
+            placeCity: 'Condado',
+            attributes: ["contactless", "drinks"],
+            addtionalComments: 'Great vibe!',
+        },
+        {
+            id: 2,
+            author: 1,
+            placeId: 'ck6cpc6a100003h5qu7jor4kf',
+            placeName:  "Cayo Caribe",
+            placeCity: 'Chicao',
+            attributes: ["no-plastic", "food", "contactless"],
+            addtionalComments: 'Great atmosphere!',
         }
     ]
     }
-    export default STORE; 
+    export default STORE;
+    
