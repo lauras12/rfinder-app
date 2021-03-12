@@ -4,14 +4,12 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
-import {RestaurantContextProvider} from './Context';
+
 
 ReactDOM.render(
     // <Errors>
     <BrowserRouter>
-        <RestaurantContextProvider>
-            <App />
-        </RestaurantContextProvider>
+        <App />
     </BrowserRouter>,
     // </Errors>  
 
