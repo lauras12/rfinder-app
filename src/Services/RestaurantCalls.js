@@ -1,28 +1,28 @@
 import config from '../config';
 import TokenService from '../Services/token-service';
 
-const RestaurantCalls = {
+const RestuarantCalls = {
     getAllReviewedPlaces: () => {
         const URL = config.API_ENDPOINT + '/';
-        console.log(URL)
+        console.log(URL);
         return fetch(URL)
             .then(res => {
                 if (!res.ok) {
                     return res.json()
                         .then(err => {
-                            console.log(err)
-                            throw new Error(err.error.message)
+                            console.log(err);
+                            throw new Error(err.error.message);
                         })
                 }
-                console.log(res)
+                console.log(res);
                 return res;
             })
-            .then(res => res.json())
+            .then(res => res.json());
     },
 
     postNewReview: (placeId, newPlace) => {
-        const URL = config.API_ENDPOINT + `/${placeId}/review`
-        console.log(URL)
+        const URL = config.API_ENDPOINT + `/${placeId}/review`;
+        console.log(URL, newPlace);
         return fetch(URL, {
             method: 'POST',
             headers: {
@@ -45,7 +45,7 @@ const RestaurantCalls = {
             .then(res => res.json())
     },
 
-    getAllRestaurantPlacesByUser: () => {
+    getAllRestuarantPlacesByUser: () => {
         const URL = config.API_ENDPOINT + '/user';
         return fetch(URL, {
             method: 'GET',
@@ -67,7 +67,7 @@ const RestaurantCalls = {
             .then(res => res.json())
     },
 
-    getRestaurantPlaceById: (placeId) => {
+    getRestuarantPlaceById: (placeId) => {
         const URL = config.API_ENDPOINT + `/place/${placeId}`;
         return fetch(URL, {
             method: 'GET',
@@ -92,7 +92,7 @@ const RestaurantCalls = {
     },
 
 
-    editRestaurantPlace: (placeId, updatedInfo) => {
+    editRestuarantPlace: (placeId, updatedInfo) => {
         const URL = config.API_ENDPOINT + `/edit/${placeId}`;
         console.log(URL)
         return fetch(URL, {
@@ -117,7 +117,7 @@ const RestaurantCalls = {
             .then(res => res.json())
     },
 
-    deleteRestaurantPlace: (placeId) => {
+    deleteRestuarantPlace: (placeId) => {
         const URL = config.API_ENDPOINT + `/place/delete/${placeId}`;
         return fetch(URL, {
             method: 'DELETE',
@@ -139,4 +139,4 @@ const RestaurantCalls = {
 
 }
 
-export default RestaurantCalls;
+export default RestuarantCalls;

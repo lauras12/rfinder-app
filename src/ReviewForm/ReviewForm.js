@@ -1,15 +1,16 @@
 import React from 'react';
-import RestaurantContext from '../Context';
+import RestuarantContext from '../Context';
 import './ReviewForm.css'; 
-import RestaurantCalls from '../Services/RestaurantCalls';
+import RestuarantCalls from '../Services/RestuarantCalls';
 
 export default class ReviewForm extends React.Component {
-    static contextType = RestaurantContext;
+    static contextType = RestuarantContext;
     constructor(e) {
         super(e)
         this.state = {
             selection: [],
             comments: '',
+            catregory: '',
             error: null
         }
     }
@@ -27,6 +28,13 @@ export default class ReviewForm extends React.Component {
         })
     }
 
+    handleCategory = (e)=> {
+        e.preventDefault();
+        console.log(e.target.value, 'CATEGORY')
+        this.setState({
+            category: e.target.value,
+        })
+    }
 
     handlePlaceReview = (e) => {
         e.preventDefault();
@@ -34,33 +42,34 @@ export default class ReviewForm extends React.Component {
         const currentPlace = this.context.list.find(item => item.id === id);
         console.log(currentPlace, 'PLACE')
         const newReviewedPlace = {
-            yelpId: this.props.match.params.id,
+            yelp_id: this.props.match.params.id,
             name: currentPlace.name,
             img: currentPlace.image_url,
             url: currentPlace.url,
-            yelpRating: currentPlace.rating,
+            yelp_rating: currentPlace.rating,
             location_str: currentPlace.location.address1,
             location_city: currentPlace.location.city,
             location_zip: currentPlace.location.zip_code,
             location_st: currentPlace.location.state,
-            yelpRating: currentPlace.rating,
-            phone: currentPlace.phone,
-            displayPhone: currentPlace.display_phone,
+            display_phone: currentPlace.display_phone,
+            category: this.state.category,
+            // price: currentPlace.price,
             checkedFinds: this.state.selection,
             review: this.state.comments,
         }
-        console.log(newReviewedPlace)
+        console.log(newReviewedPlace, 'SENT INFO')
         
-        RestaurantCalls.postNewReview(this.props.match.params.id, newReviewedPlace)
+        RestuarantCalls.postNewReview(this.props.match.params.id, newReviewedPlace)
         .then(data => {
             console.log(data, 'SAVED????')
+            this.props.history.push(`/reviews/${newReviewedPlace.location_city}`)
         })
         .catch(err => {
             this.setState({
                 error: err
             })
         })
-        this.props.history.push(`/reviews/${newReviewedPlace.location_city}`)
+        
     }
 
 
@@ -145,6 +154,19 @@ export default class ReviewForm extends React.Component {
                     <h3>Additional comments</h3>
                     <textarea rows="10" cols='50' onChange={this.handleComments} ></textarea>
                     <br />
+
+                    <h2>Save in category: </h2>
+                    <select onChange={this.handleCategory} required>
+                    <option value=" ">Choose one </option>
+                    <option value="Coffee-shops">Coffee-shops</option>
+                    <option value="Bakeries">Bakeries</option>
+                    <option value="Juice-Bar">Juice-Bars</option>
+                    <option value="Resturants">Restaurants</option>
+                    <option value="Breakfast">Breakfast</option>
+                    <option value="Lunch">Lunch</option>
+                    <option value="Dinner">Dinner</option>
+                   
+                </select>
                     <button>Post Review</button>
                 </form>
 

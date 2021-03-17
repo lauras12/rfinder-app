@@ -10,11 +10,10 @@ const ListHelpers = {
                 <li className='li' key={pl.id}>
                     <ReviewedListItem
                         placeId={pl.id}
-                        userId={pl.userid}
-                        yelpId={pl.yelpId}
+                        yelpId={pl.yelp_id}
                         name={pl.name}
                         city={pl.location_city}
-                        folder={pl.folderid}
+                        category={pl.category}
                         finds={pl.checkedfinds.length}
                     />
                 </li>

@@ -12,7 +12,8 @@ const RestaurantContext = React.createContext({
     citySort: () => {},
     userSort: () => {},
 
-})
+});
+
 export default RestaurantContext;
 
 export class RestaurantContextProvider extends React.Component {
@@ -27,32 +28,32 @@ export class RestaurantContextProvider extends React.Component {
         }
     }
 
-    setList = (data) => {
+    setList = data => {
         this.setState({
             list: data,
-        })
+        });
     }
-    setRestaurantPlaces = (data) => {
+    setRestaurantPlaces = data => {
         this.setState({
             restaurantPlaces: data
-        })
+        });
     }
 
-    userSort = (filteredPlaces)=> {
+    userSort = filteredPlaces => {
         this.setState({
             userPlaces: filteredPlaces,
-        })
+        });
     }
 
-    citySort = (city) => {
+    citySort = city => {
         let reviews = this.state.restaurantPlaces.filter(pl => {
-            console.log(city, this.state.restaurantPlaces)
-            return pl.location_city.toLowerCase() === city.toLowerCase()
-        })
+            console.log(city, this.state.restaurantPlaces);
+            return pl.location_city.toLowerCase() === city.toLowerCase();
+        });
         console.log(reviews)
         this.setState({
             citySortPlaces: reviews,
-        })
+        });
     }
     render() {
        
@@ -65,12 +66,12 @@ export class RestaurantContextProvider extends React.Component {
             setList: this.setList,
             setRestaurantPlaces: this.setRestaurantPlaces,
             citySort: this.citySort,
-        }
+        };
         return (
             <RestaurantContext.Provider value={contextValue} >
                 {this.props.children}
             </RestaurantContext.Provider >
 
-        )
+        );
     }
 }
