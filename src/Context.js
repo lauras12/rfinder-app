@@ -4,15 +4,13 @@ import React, { createContext } from 'react';
 const RestaurantContext = React.createContext({
     list: [],
     restaurantPlaces: [],
-    users: [],
+    userPlaces: [],
     folders: [],
-    reviews: [],
+    citySortPlaces: [],
     setList: () => { },
     setRestaurantPlaces: () => { },
-    addFolder: () => { },
-    addPlaceToFolder: () => { },
-    addReview: () => { },
-    sortReviews: [],
+    citySort: () => {},
+    userSort: () => {},
 
 })
 export default RestaurantContext;
@@ -23,10 +21,9 @@ export class RestaurantContextProvider extends React.Component {
         this.state = {
             list: [],
             restaurantPlaces: [],
-            users: [],
+            userPlaces: [],
+            citySortPlaces: [],
             folders: [],
-            reviews: [],
-            sortReviews: [],
         }
     }
 
@@ -41,50 +38,33 @@ export class RestaurantContextProvider extends React.Component {
         })
     }
 
-    addFolder = (folder) => {
+    userSort = (filteredPlaces)=> {
         this.setState({
-            //folders: [...STORE.folders, folder]
+            userPlaces: filteredPlaces,
         })
     }
 
-    addPlaceToFolder = (id, folderName) => {
-        console.log(this.state.folders, folderName, id)
-        const pickedFolder = this.state.folders.find(folder => folder.title === folderName)
-        console.log(pickedFolder, 'PICKED')
-        pickedFolder.savedPlacesIds = [...pickedFolder.savedPlacesIds, id]
-    }
-
-    addReview = (review) => {
-        console.log(review, 'REVIEW IN CONTEXT')
-        this.setState({
-            reviews: [...this.state.reviews, review]
-        })
-    }
-
-    reviewCitySort = (city) => {
+    citySort = (city) => {
         let reviews = this.state.restaurantPlaces.filter(pl => {
+            console.log(city, this.state.restaurantPlaces)
             return pl.location_city.toLowerCase() === city.toLowerCase()
         })
         console.log(reviews)
         this.setState({
-            sortReviews: reviews,
+            citySortPlaces: reviews,
         })
     }
     render() {
-        console.log(this.state)
+       
         const contextValue = {
             list: this.state.list,
             restaurantPlaces: this.state.restaurantPlaces,
-            users: this.state.users,
-            folders: this.state.folders,
-            reviews: this.state.reviews,
-            sortReviews: this.state.sortReviews,
+            userPlaces: this.state.userPlaces,
+            citySortPlaces: this.state.citySortPlaces,
+            userSort: this.userSort,
             setList: this.setList,
             setRestaurantPlaces: this.setRestaurantPlaces,
-            addFolder: this.addFolder,
-            addPlaceToFolder: this.addPlaceToFolder,
-            addReview: this.addReview,
-            reviewCitySort: this.reviewCitySort,
+            citySort: this.citySort,
         }
         return (
             <RestaurantContext.Provider value={contextValue} >

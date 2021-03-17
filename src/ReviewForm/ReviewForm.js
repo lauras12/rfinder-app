@@ -1,10 +1,10 @@
 import React from 'react';
-import RestauranTContext from '../Context';
-import cuid from 'cuid';
+import RestaurantContext from '../Context';
 import './ReviewForm.css'; 
+import RestaurantCalls from '../Services/RestaurantCalls';
 
 export default class ReviewForm extends React.Component {
-    static contextType = RestauranTContext;
+    static contextType = RestaurantContext;
     constructor(e) {
         super(e)
         this.state = {
@@ -14,12 +14,11 @@ export default class ReviewForm extends React.Component {
         }
     }
 
-
-
     handleSelection = (e) => {
         this.setState({
-            selection: [...this.state.selection, e.target.value],
+            selection: [...this.state.selection, Number(e.target.value)],
         })
+       
     }
 
     handleComments = (e) => {
@@ -28,29 +27,42 @@ export default class ReviewForm extends React.Component {
         })
     }
 
+
     handlePlaceReview = (e) => {
         e.preventDefault();
         const id = this.props.match.params.id;
         const currentPlace = this.context.list.find(item => item.id === id);
         console.log(currentPlace, 'PLACE')
-        const newReview = {
-            id: cuid(),
-            placeId: this.props.match.params.id,
-            placeName: currentPlace.name,
-            placeCity: currentPlace.location.city,
-            attributes: this.state.selection,
-            addtionalComments: this.state.comments,
+        const newReviewedPlace = {
+            yelpId: this.props.match.params.id,
+            name: currentPlace.name,
+            img: currentPlace.image_url,
+            url: currentPlace.url,
+            yelpRating: currentPlace.rating,
+            location_str: currentPlace.location.address1,
+            location_city: currentPlace.location.city,
+            location_zip: currentPlace.location.zip_code,
+            location_st: currentPlace.location.state,
+            yelpRating: currentPlace.rating,
+            phone: currentPlace.phone,
+            displayPhone: currentPlace.display_phone,
+            checkedFinds: this.state.selection,
+            review: this.state.comments,
         }
-        this.context.addReview(newReview)
-        this.props.history.push(`/reviews/${newReview.placeCity}`)
+        console.log(newReviewedPlace)
+        
+        RestaurantCalls.postNewReview(this.props.match.params.id, newReviewedPlace)
+        .then(data => {
+            console.log(data, 'SAVED????')
+        })
+        this.props.history.push(`/reviews/${newReviewedPlace.location_city}`)
     }
 
 
     render() {
-
         const id = this.props.match.params.id;
         const currentPlace = this.context.list.find(item => item.id === id)
-
+        console.log(currentPlace,'CURRENT PLACE')
         return (
             <div className='res-card'>
                 <h2>{currentPlace.name}</h2>
@@ -66,39 +78,73 @@ export default class ReviewForm extends React.Component {
 
                 <br />
                 <form onSubmit={this.handlePlaceReview}>
-                    <h3>Put a checkmark next to your favorite things!:</h3>
-
-                    <input className='input' type='checkbox' value='vibe' onClick={this.handleSelection} />
-                    <label>Awesome atomphere & vibe</label>
+                    <h3>Mark reward worthy habits!:</h3>
+                    
+                    <br />
+                    <input className='input' type='checkbox'  value='1' id='chx1' onClick={this.handleSelection} />
+                    <label htmlFor='chx1'>No single use plastics</label>
                     <br />
 
-                    <input className='input' type='checkbox' value='delicious' onClick={this.handleSelection} />
-                    <label>Best food I've ever had</label>
+                    <input className='input' type='checkbox' value='2' onClick={this.handleSelection} />
+                    <label>Compostable take-out containers and cups</label>
                     <br />
 
-                    <input className='input' type='checkbox' value='drinks' onClick={this.handleSelection} />
-                    <label>Best drinks I've ever had</label>
+                    <input className='input' type='checkbox' value='3' onClick={this.handleSelection} />
+                    <label>No plastic bottled drinks</label>
                     <br />
 
-                    <input className='input' type='checkbox' value='contactless' onClick={this.handleSelection} />
-                    <label>Touch free = covid free!</label>
+                    <input className='input' type='checkbox' value='4' onClick={this.handleSelection} />
+                    <label>Composting food scraps</label>
                     <br />
 
-                    <input className='input' type='checkbox' value='local' onClick={this.handleSelection} />
+                    <input className='input' type='checkbox' value='5' onClick={this.handleSelection} />
+                    <label>Recycle and compost bins inside</label>
+                    <br />
+
+                    <input className='input' type='checkbox' value='6' onClick={this.handleSelection} />
+                    <label>Hemp based or fabric napkins and paper towels</label>
+                    <br />
+
+                    <input className='input' type='checkbox' value='7' onClick={this.handleSelection} />
+                    <label>Papperless, fully computer based billing and record keeping</label>
+                    <br />
+
+                    <input className='input' type='checkbox' value='8' onClick={this.handleSelection} />
+                    <label>Donating food to local shelter or 'free meal night'</label>
+                    <br />
+
+                    <input className='input' type='checkbox' value='9' onClick={this.handleSelection} />
                     <label>Locally sourced produce</label>
                     <br />
 
-                    <input className='input' type='checkbox' value='organic' onClick={this.handleSelection} />
-                    <label>Organic products</label>
+                    <input className='input' type='checkbox' value='10' onClick={this.handleSelection} />
+                    <label>Organic produce</label>
                     <br />
 
+                    <input className='input' type='checkbox' value='11' onClick={this.handleSelection} />
+                    <label>Resposible frying oil disposal</label>
+                    <br />
+
+
+                    <input className='input' type='checkbox' value='12' onClick={this.handleSelection} />
+                    <label>Saves energy by installing light timers and motion sensors</label>
+                    <br />
+
+                    <input className='input' type='checkbox' value='13' onClick={this.handleAddAttribute} />
+                    <label>Saves water by installing low flow faucets</label>
+                    <br />
+
+                    <input className='input' type='checkbox' value='14' onClick={this.handleAddAttribute} />
+                    <label>Saves energy and water by installing energy star equipmnet</label>
+                    <br />
                     <h3>Additional comments</h3>
                     <textarea rows="10" cols='50' onChange={this.handleComments} ></textarea>
                     <br />
                     <button>Post Review</button>
                 </form>
 
+
             </div>
         )
     }
-} 
+}
