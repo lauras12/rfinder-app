@@ -6,7 +6,6 @@ import TokenService from '../Services/token-service';
 import config from '../config';
 
 export default withRouter(function ReviewedListItem(props) {
-   console.log(props)
     const resaurantfinds = () => {
         const finds = [];
         for(let i =0; i < props.finds; i++){

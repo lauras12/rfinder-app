@@ -1,30 +1,41 @@
 import React, { createContext } from 'react';
 //import STORE from './dummyData';
 
-const RestaurantContext = React.createContext({
+const RestuarantContext = React.createContext({
     list: [],
-    restaurantPlaces: [],
+    restuarantPlaces: [],
     userPlaces: [],
     folders: [],
+    currentUser: null,
+    userSelection: Boolean,
+    citySelection: Boolean,
+    categorySelection: Boolean,
     citySortPlaces: [],
+    categorySortPlaces: [],
     setList: () => { },
-    setRestaurantPlaces: () => { },
+    setCurrentUser: ()=> {},
+    setUserSelection: () => {},
+    setRestuarantPlaces: () => { },
     citySort: () => {},
     userSort: () => {},
-
+    categorySort: () => {},
 });
 
-export default RestaurantContext;
+export default RestuarantContext;
 
-export class RestaurantContextProvider extends React.Component {
+export class RestuarantContextProvider extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             list: [],
-            restaurantPlaces: [],
+            restuarantPlaces: [],
             userPlaces: [],
+            userSelection: false,
+            citySelection: false,
+            categorySelection: false,
+            currentUser:null,
             citySortPlaces: [],
-            folders: [],
+            categorySortPlaces: [],
         }
     }
 
@@ -33,12 +44,23 @@ export class RestaurantContextProvider extends React.Component {
             list: data,
         });
     }
-    setRestaurantPlaces = data => {
+    setRestuarantPlaces = data => {
         this.setState({
-            restaurantPlaces: data
+            restuarantPlaces: data
         });
     }
-
+    setCurrentUser =(id) => {
+        console.log(id, 'USERID')
+        this.setState({
+            currentUser: id,
+        })
+    }
+    setUserSelection = () => {
+        this.setState({
+            userSelection: true,
+        })
+       
+    }
     userSort = filteredPlaces => {
         this.setState({
             userPlaces: filteredPlaces,
@@ -46,31 +68,53 @@ export class RestaurantContextProvider extends React.Component {
     }
 
     citySort = city => {
-        let reviews = this.state.restaurantPlaces.filter(pl => {
-            console.log(city, this.state.restaurantPlaces);
+        let reviews = this.state.restuarantPlaces.filter(pl => {
+            console.log(city, this.state.restuarantPlaces);
             return pl.location_city.toLowerCase() === city.toLowerCase();
         });
-        console.log(reviews)
+       
         this.setState({
+            citySelection: true,
             citySortPlaces: reviews,
         });
     }
-    render() {
+
+    categorySort = category => {
+        let reviews = this.state.restuarantPlaces.filter(pl => {
+            console.log(category, pl.category);
+            return pl.category === category;
+        });
        
+        this.setState({
+            categorySortPlaces: reviews,
+            categorySelection: true,
+        });
+
+    }
+    render() {
+       console.log(this.state.categorySortPlaces, 'CATEGORY SORT RESULTS')
         const contextValue = {
             list: this.state.list,
-            restaurantPlaces: this.state.restaurantPlaces,
+            restuarantPlaces: this.state.restuarantPlaces,
             userPlaces: this.state.userPlaces,
             citySortPlaces: this.state.citySortPlaces,
+            categorySortPlaces: this.state.categorySortPlaces,
+            userSelection: this.state.userSelection,
+            citySelection: this.state.citySelection,
+            categorySelection: this.state.categorySelection,
+            currentUser: this.state.currentUser,
             userSort: this.userSort,
             setList: this.setList,
-            setRestaurantPlaces: this.setRestaurantPlaces,
+            setRestuarantPlaces: this.setRestuarantPlaces,
+            setCurrentUser: this.setCurrentUser,
+            setUserSelection: this.setUserSelection,
             citySort: this.citySort,
+            categorySort: this.categorySort,
         };
         return (
-            <RestaurantContext.Provider value={contextValue} >
+            <RestuarantContext.Provider value={contextValue} >
                 {this.props.children}
-            </RestaurantContext.Provider >
+            </RestuarantContext.Provider >
 
         );
     }

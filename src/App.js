@@ -9,10 +9,10 @@ import LoginPage from './Login/LoginPage';
 import RegisterPage from './Register/RegisterPage';
 import List from './List/List';
 import ReviewForm from './ReviewForm/ReviewForm';
-import Bookmarks from './Bookmarks/Bookmarks';
 import ReviewedList from './ReviewedList/ReviewedList';
-import RestaurantPlace from './RestaurantPLaceFullCard/RestaurantPlace';
-import EditReview from './EditRestaurantPlace/EditRestaurantPlace';
+import RestuarantPlace from './RestuarantPLaceFullCard/RestuarantPlace';
+import EditReview from './EditRestuarantPlace/EditRestuarantPlace';
+import UserSort from './ReviewedList/UserSort';
 
 
 export default class App extends React.Component {
@@ -32,11 +32,19 @@ export default class App extends React.Component {
           <Route exact path='/register' component={Header} />
           <Route path='/register' component={RegisterPage} />
 
+          {/* <Route exact path='/user_sort' component={Header2} />
+          <Route exact path='/user_sort' component={ReviewedList} />
+          <Route exact path='/user_sort' component={UserSort} /> */}
+          
+          <Route exact path='/user/places' component={ReviewedList} />
+          <Route exact path='/city/:city' component={ReviewedList} />
+          <Route exact path='/category/:category' component={ReviewedList} />
+
           <Route exact path='/list/:location' component={Header2} />
           <Route exact path='/list/:location' component={List} />
 
-          <Route exact path='/restaurant_place/:yelpId/:placeId' component={Header2} />
-          <Route exact path='/restaurant_place/:yelpId/:placeId' component={RestaurantPlace} />
+          <Route exact path='/restuarant_place/:yelpId/:placeId' component={Header2} />
+          <Route exact path='/restuarant_place/:yelpId/:placeId' component={RestuarantPlace} />
 
           <Route exact path='/edit/:placeId/' component={Header2} />
           <Route exact path='/edit/:placeId/' component={EditReview} />
@@ -48,7 +56,6 @@ export default class App extends React.Component {
           <Route exact path='/reviews/:location' component={ReviewedList} />
           <Route exact path='/reviews/:location' component={List} />
 
-          <Route exact path='/bookmark/:place_id' component={Bookmarks} />
         </main>
       </div>
     );
