@@ -3,8 +3,8 @@ import config from '../config';
 
 
 const ProxyCalls = {
-    getFromGreenThumbApi: (term, location) => {
-        const URL = 'http://localhost:8000/' + `?` + `term=${term}` +'&'+ `location=${location}`;
+    getFromRestaurantFindApi: (term, location) => {
+        const URL = 'https://rfinder-api.herokuapp.com//' + `?` + `term=${term}` +'&'+ `location=${location}`;
         return fetch(URL, {
             headers: {
                 'Access-Control-Allow-Origin': '*',
