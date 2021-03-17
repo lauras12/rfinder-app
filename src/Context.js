@@ -1,12 +1,14 @@
 import React, { createContext } from 'react';
-import STORE from './dummyData';
+//import STORE from './dummyData';
 
 const RestaurantContext = React.createContext({
     list: [],
+    restaurantPlaces: [],
     users: [],
     folders: [],
     reviews: [],
     setList: () => { },
+    setRestaurantPlaces: () => { },
     addFolder: () => { },
     addPlaceToFolder: () => { },
     addReview: () => { },
@@ -20,9 +22,10 @@ export class RestaurantContextProvider extends React.Component {
         super(props)
         this.state = {
             list: [],
-            users: STORE.users,
-            folders: STORE.folders,
-            reviews: STORE.reviews,
+            restaurantPlaces: [],
+            users: [],
+            folders: [],
+            reviews: [],
             sortReviews: [],
         }
     }
@@ -32,10 +35,15 @@ export class RestaurantContextProvider extends React.Component {
             list: data,
         })
     }
+    setRestaurantPlaces = (data) => {
+        this.setState({
+            restaurantPlaces: data
+        })
+    }
 
     addFolder = (folder) => {
         this.setState({
-            folders: [...STORE.folders, folder]
+            //folders: [...STORE.folders, folder]
         })
     }
 
@@ -54,9 +62,8 @@ export class RestaurantContextProvider extends React.Component {
     }
 
     reviewCitySort = (city) => {
-        let reviews = this.state.reviews.filter(rev => {
-            console.log(rev.placeCity, city, rev)
-            return rev.placeCity.toLowerCase() === city.toLowerCase()
+        let reviews = this.state.restaurantPlaces.filter(pl => {
+            return pl.location_city.toLowerCase() === city.toLowerCase()
         })
         console.log(reviews)
         this.setState({
@@ -67,11 +74,13 @@ export class RestaurantContextProvider extends React.Component {
         console.log(this.state)
         const contextValue = {
             list: this.state.list,
+            restaurantPlaces: this.state.restaurantPlaces,
             users: this.state.users,
             folders: this.state.folders,
             reviews: this.state.reviews,
             sortReviews: this.state.sortReviews,
             setList: this.setList,
+            setRestaurantPlaces: this.setRestaurantPlaces,
             addFolder: this.addFolder,
             addPlaceToFolder: this.addPlaceToFolder,
             addReview: this.addReview,

@@ -1,10 +1,10 @@
-import React from 'react';
 import config from '../config';
 
 
 const ProxyCalls = {
-    getFromRestaurantFindApi: (term, location) => {
-        const URL = 'https://rfinder-api.herokuapp.com//' + `?` + `term=${term}` +'&'+ `location=${location}`;
+    getThroughRestaurantFindApi: (term, location) => {
+        const URL = `http://localhost:8000/` + `?` + `term=${term}` +'&'+ `location=${location}`;
+        console.log(URL, 'CLIENT')
         return fetch(URL, {
             headers: {
                 'Access-Control-Allow-Origin': '*',
@@ -20,7 +20,7 @@ const ProxyCalls = {
                 })
                 
             }
-            console.log(res, 'maybe working?')
+            console.log(res, 'REALLY???????')
             return res
         })
         .then(res => res.json());
