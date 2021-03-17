@@ -60,7 +60,7 @@ export default class EditRestaurantPlace extends React.Component {
     handleFindChange = (e) => {
         // e.preventDefault()
         const name = e.target.value
-
+        
         this.setState(prevState => ({
         [name]: !prevState[name]
         }))
@@ -86,7 +86,7 @@ export default class EditRestaurantPlace extends React.Component {
             }
         }
         let finalFindList = EditHelper.changeFindIntoNUM(updatedFinds)
-
+        
         console.log(finalFindList)
         const updatedReview = {
             ...this.state.placeInfo,
@@ -98,12 +98,18 @@ export default class EditRestaurantPlace extends React.Component {
         .then(data => {
             console.log(data)
         })
+        .catch(err => {
+            this.setState({
+                error: err
+            })
+        })
+        this.props.history.push('/');
     }
 
 
 
     render() {
-
+        
         const { id, yelpId, name, img_url, url, yelprating, location_str, location_city, location_zip, location_st, displayphone, folderid, review } = this.state.placeInfo;
 
         console.log(this.state.placeInfo)
@@ -129,10 +135,10 @@ export default class EditRestaurantPlace extends React.Component {
             }
         }
 
-
+       
         return (
             <div >
-
+                
                 <img src={img_url} />
                 <h2>{name}</h2>
                 <p>{location_str}</p>
@@ -148,14 +154,14 @@ export default class EditRestaurantPlace extends React.Component {
                 <form onSubmit={this.handleUpdateReview}>
                     <h3>Reward worthy habits!:</h3>
                     {checkingBoxes}
-
+                   
                     <h3>Additional comments</h3>
                     <textarea rows="10" cols='50' onChange={this.handleComments} >
                     <div contentEditable='true' >{this.state.placeInfo.review}</div>
                     </textarea>
-
+                    
                     <br />
-                    <button>Update Review</button>
+                    <button type='submit' >Update Review</button>
                 </form>
 
 

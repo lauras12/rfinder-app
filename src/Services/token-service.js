@@ -1,4 +1,5 @@
 import config from '../config';
+import jwt from 'jsonwebtoken';
 
 const TokenService = {
     saveAuthToken(token) {
@@ -15,6 +16,10 @@ const TokenService = {
     },
     makeBasicAuthToken(userName, password) {
         return window.btoa(`${userName}:${password}`)
+    },
+    verifyJWT(token) {
+        console.log(token, 'TTTTTTTTT')
+        return jwt.verify(token, config.JWT_SECRET, {algorithms: ['HS256']})
     },
 }
 
