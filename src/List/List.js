@@ -1,11 +1,10 @@
 import React from 'react';
 import RestaurantContext from '../Context';
-import ListItem from '../LIstItem/ListItem';
+import ListItem from '../ListItem/ListItem';
 
 export default class List extends React.Component {
     static contextType = RestaurantContext;
     render() {
-        console.log(this.context.list)
         let { list } = this.context;
         list = list.map(item => {
             return (

@@ -25,7 +25,6 @@ changeFindIntoNUM: (finds) => {
            console.log(find)
             for(let [key,value] of Object.entries(findObjects)){
                 if(key === find) {
-                    console.log(key, find ,'????????????')
                     finalFindList.push(value)
                 } 
             }

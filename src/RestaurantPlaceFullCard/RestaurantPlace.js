@@ -1,12 +1,11 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import RestuarantContext from '../Context';
-import RestuarantCalls from '../Services/RestuarantCalls';
-import jwt from 'jsonwebtoken';
-import TokenService from '../Services/token-service';
+import RestaurantContext from '../Context';
+import RestaurantCalls from '../Services/RestaurantCalls';
 
-export default withRouter(class RestuarantPlace extends React.Component {
-    static contextType = RestuarantContext;
+
+export default withRouter(class RestaurantPlace extends React.Component {
+    static contextType = RestaurantContext;
     constructor() {
         super()
         this.state = {
@@ -18,8 +17,7 @@ export default withRouter(class RestuarantPlace extends React.Component {
     deleteReview = (e) => {
         e.preventDefault();
         let placeId = Number(this.props.match.params.placeId);
-        console.log(placeId, 'DELETING????')
-        RestuarantCalls.deleteRestuarantPlace(placeId)
+        RestaurantCalls.deleteRestaurantPlace(placeId)
             .then(() => {
                 console.log('review deleted')
                 this.props.history.push('/')
@@ -39,18 +37,17 @@ export default withRouter(class RestuarantPlace extends React.Component {
     // }
 
     render() {
-        console.log(this.context.currentUser)
         // this.handleUserIdentityBeforeDeleteAndPost()
-        const restuarantPractices = ['No single use plastic', 'Compostable take-out containers and cups', 'No plastic bottled drinks', 'Composting food scraps', 'Recycle and compost bins inside', 'Hemp based or fabric napkins and paper towels', 'Papperless, fully computer based billing and record keeping', 'Donating leftover food to local shelter or "free meal night"', 'Locally sourced produce', 'Organic produce', 'Resposible frying oil disposal', 'Saves energy by installing light timers and motion sensors', 'Saves water by installing low flow faucets', 'Saves energy and water by installing energy star equipmnet']
+        const restaurantPractices = ['No single use plastic', 'Compostable take-out containers and cups', 'No plastic bottled drinks', 'Composting food scraps', 'Recycle and compost bins inside', 'Hemp based or fabric napkins and paper towels', 'Papperless, fully computer based billing and record keeping', 'Donating leftover food to local shelter or "free meal night"', 'Locally sourced produce', 'Organic produce', 'Resposible frying oil disposal', 'Saves energy by installing light timers and motion sensors', 'Saves water by installing low flow faucets', 'Saves energy and water by installing energy star equipmnet']
 
         let placeId = Number(this.props.match.params.placeId);
         let yelpId = this.props.match.params.yelpId;
-        console.log(this.props.match.params)
-        const selectedPlace = this.context.restuarantPlaces.find(pl => pl.yelp_id === yelpId)
-        console.log(this.context.restuarantPlaces, selectedPlace, 'SELECTED', yelpId, 'YELP?????')
-        const { name, img, url, yelp_rating, location_str, location_city, location_zip, location_st, display_phone, userid, restuarant_reviews_count, category, review, reviewDate, checkedFinds } = selectedPlace;
+        
+        const selectedPlace = this.context.restaurantPlaces.find(pl => pl.yelp_id === yelpId)
+      
+        const { name, img, url, yelp_rating, location_str, location_city, location_zip, location_st, display_phone, restaurant_reviews_count, category, review } = selectedPlace;
 
-        const restuarantFinds = selectedPlace.checkedFinds.map((el, key) => {
+        const restaurantFinds = selectedPlace.checkedFinds.map((el, key) => {
             return (
                 <li key={key}>{el}</li>
             )
@@ -58,7 +55,7 @@ export default withRouter(class RestuarantPlace extends React.Component {
 
 
         const remainingPractices = [];
-        restuarantPractices.filter(el => {
+        restaurantPractices.filter(el => {
             if (!selectedPlace.checkedFinds.includes(el)) {
                 remainingPractices.push(el);
             }
@@ -72,14 +69,11 @@ export default withRouter(class RestuarantPlace extends React.Component {
         })
 
         const currentUsersPlace = this.context.userPlaces.find(place => place.id === placeId)
-        console.log(currentUsersPlace, this.context.userPlaces, 'PLACE??????')
+        
         return (
 
             <div>
                 <img src={img} />
-                {/* <Link to={`/bookmark/${placeId}`}>
-                    <button>Save place to my folder</button>
-                </Link> */}
                 {currentUsersPlace ?
                     <section>
                         <Link to={`/edit/${placeId}/`}>
@@ -104,10 +98,10 @@ export default withRouter(class RestuarantPlace extends React.Component {
                 <h3>{display_phone}</h3>
                 <p>{category}</p>
                 <h3>Yelp rating: {yelp_rating}</h3>
-                <h3>rfinds UP reviews count: {restuarant_reviews_count}</h3>
+                <h3>finds reviews count: {restaurant_reviews_count}</h3>
                 <h2>This location has been noted for following Earth friendly practices:</h2>
                 <ul>
-                    {restuarantFinds}
+                    {restaurantFinds}
                 </ul>
                 <h2>Additional comments:</h2>
                 <p>{review[0]}</p>

@@ -1,10 +1,10 @@
 import React from 'react';
-import RestuarantContext from '../Context';
+import RestaurantContext from '../Context';
 import './ReviewForm.css'; 
-import RestuarantCalls from '../Services/RestuarantCalls';
+import RestaurantCalls from '../Services/RestaurantCalls';
 
 export default class ReviewForm extends React.Component {
-    static contextType = RestuarantContext;
+    static contextType = RestaurantContext;
     constructor(e) {
         super(e)
         this.state = {
@@ -40,7 +40,8 @@ export default class ReviewForm extends React.Component {
         e.preventDefault();
         const id = this.props.match.params.id;
         const currentPlace = this.context.list.find(item => item.id === id);
-        console.log(currentPlace, 'PLACE')
+        const reviewCount = 0;
+      
         const newReviewedPlace = {
             yelp_id: this.props.match.params.id,
             name: currentPlace.name,
@@ -53,22 +54,32 @@ export default class ReviewForm extends React.Component {
             location_st: currentPlace.location.state,
             display_phone: currentPlace.display_phone,
             category: this.state.category,
-            // price: currentPlace.price,
             checkedFinds: this.state.selection,
             review: this.state.comments,
         }
-        console.log(newReviewedPlace, 'SENT INFO')
         
-        RestuarantCalls.postNewReview(this.props.match.params.id, newReviewedPlace)
+        RestaurantCalls.postNewReview(this.props.match.params.id, newReviewedPlace)
         .then(data => {
-            console.log(data, 'SAVED????')
-            //this.props.history.push(`/reviews/${newReviewedPlace.location_city}`)
+            console.log(data, 'SAVED????', data.id)
+            this.props.history.push(`/reviews/${newReviewedPlace.location_city}`)
         })
         .catch(err => {
             this.setState({
                 error: err
             })
         })
+
+        // RestaurantCalls.checkReviewCount(currentPlace.id)
+        // .then(count => {
+        //     console.log(count)
+        //     reviewCount = Number(count)
+        // })
+        // .catch(err => {
+        //     this.setState({
+        //         error: err
+        //     })
+        // })
+        // console.log(reviewCount, 'REVIEWCOUNT!!!!!')
         
     }
 
@@ -76,7 +87,7 @@ export default class ReviewForm extends React.Component {
     render() {
         const id = this.props.match.params.id;
         const currentPlace = this.context.list.find(item => item.id === id)
-        console.log(currentPlace,'CURRENT PLACE')
+       
         return (
             <div className='res-card'>
                 <h2>{currentPlace.name}</h2>
@@ -161,7 +172,7 @@ export default class ReviewForm extends React.Component {
                     <option value="Coffee-shop">Coffee-shops</option>
                     <option value="Bakery">Bakeries</option>
                     <option value="Juice-Bar">Juice-Bars</option>
-                    <option value="Resturant">Restaurants</option>
+                    <option value="Restaurant">Restaurants</option>
                     <option value="Breakfast">Breakfast</option>
                     <option value="Lunch">Lunch</option>
                     <option value="Dinner">Dinner</option>

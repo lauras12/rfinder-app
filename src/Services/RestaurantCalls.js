@@ -20,6 +20,23 @@ const RestuarantCalls = {
             .then(res => res.json());
     },
 
+    checkReviewCount: (placeId) => {
+        const URL = config.API_ENDPOINT + `/${placeId}/count`;
+        return fetch(URL)
+            .then(res => {
+                if (!res.ok) {
+                    return res.json()
+                        .then(err => {
+                            console.log(err);
+                            throw new Error(err.error.message);
+                        })
+                }
+                console.log(res);
+                return res;
+            })
+            .then(res => res.json());
+    },
+
     postNewReview: (placeId, newPlace) => {
         const URL = config.API_ENDPOINT + `/${placeId}/review`;
         console.log(URL, newPlace);
@@ -96,7 +113,7 @@ const RestuarantCalls = {
         const URL = config.API_ENDPOINT + `/edit/${placeId}`;
         console.log(URL)
         return fetch(URL, {
-            method: 'POST',
+            method: 'PATCH',
             headers: {
                 'content-type': 'application/json',
                 'authorization': `bearer ${TokenService.getAuthToken()}`
