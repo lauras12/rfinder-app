@@ -8,11 +8,11 @@ exports[`List component renders UI as expected 1`] = `
     className="smaller-header"
   >
     <h2>
-      
+      Restaurant
       <span
         className="finds"
       >
-        rfinder
+        Finder
       </span>
        reviewed places: 
     </h2>
