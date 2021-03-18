@@ -2,8 +2,6 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import TokenService from '../Services/token-service';
 import config from '../config';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import './Header.css';
 
 
@@ -12,10 +10,7 @@ export default function Header(props) {
         <header>
             <h1 className='header'>
                 <Link to='/'>
-                Restaurant<span className='finds'>finds</span> 
-                < FontAwesomeIcon icon={faThumbsUp} className='font'/>
-                < FontAwesomeIcon icon={faThumbsUp} className='font'/>
-                < FontAwesomeIcon icon={faThumbsUp} className='font'/>
+                Restaurant<span className='finds'> Finder</span> 
                 </Link>
                 
             </h1>

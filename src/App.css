@@ -24,14 +24,14 @@ main {
 
 a {
     /* color: rgb(179, 209, 108); */
-    color: rgb(0, 128, 0);
+    color: rgb(249, 250, 252);
     text-decoration: none;
     margin: 5px;
 }
 
 button {
 
-    background-color: green;
+    background-color: rgb(175, 191, 215);
     border: 0px;
     padding: 10px;
     padding-left : 25px;
