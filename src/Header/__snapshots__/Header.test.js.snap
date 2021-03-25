@@ -20,7 +20,8 @@ exports[`List component renders UI as expected 1`] = `
   <h3
     className="h-text"
   >
-  <br />
+    Welcome to Restaurant Finder!
+    <br />
     To post a review and browse through details of other user's reviews 
     <a
       href="/register"
