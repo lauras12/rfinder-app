@@ -12,6 +12,7 @@ import ReviewedList from './ReviewedList/ReviewedList';
 import RestaurantPlace from './RestaurantPLaceFullCard/RestaurantPlace';
 import EditReview from './EditRestaurantPlace/EditRestaurantPlace';
 
+
 export default class App extends React.Component {
   render() {
 
