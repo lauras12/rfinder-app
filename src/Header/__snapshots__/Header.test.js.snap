@@ -9,20 +9,18 @@ exports[`List component renders UI as expected 1`] = `
       href="/"
       onClick={[Function]}
     >
-      GREEN
+      Restaurant
       <span
         className="finds"
       >
-        finds
+         Finder
       </span>
-      UP
     </a>
   </h1>
   <h3
     className="h-text"
   >
-    Welcome to Restaurant Finder! 
-    <br />
+  <br />
     To post a review and browse through details of other user's reviews 
     <a
       href="/register"

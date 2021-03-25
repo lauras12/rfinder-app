@@ -22,4 +22,4 @@ describe('List component', () => {
         const item = renderer.create(<BR><ReviewedListItem {...props} /></BR>);
         expect(item.toJSON()).toMatchSnapshot();
     })
-}) 
+})

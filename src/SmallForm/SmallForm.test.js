@@ -19,4 +19,4 @@ describe('SmallForm component', () => {
         const form = renderer.create(<BR><SmallForm {...props}/></BR>);
         expect(form.toJSON()).toMatchSnapshot();
     })
-}) 
+})

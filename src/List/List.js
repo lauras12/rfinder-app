@@ -1,21 +1,25 @@
 import React from 'react';
 import RestaurantContext from '../Context';
-import ListItem from '../ListItem/ListItem';
+import ListItem from '../LIstItem/ListItem';
+import './List.css';
+
 
 export default class List extends React.Component {
     static contextType = RestaurantContext;
     render() {
+       
         let { list } = this.context;
         list = list.map(item => {
+
             return (
                 <ListItem
                     key={item.id}
                     id={item.id}
                     name={item.name}
-                    location={item.location}
+                    itemLocation={item.location}
                     phone={item.display_phone}
                     price={item.price}
-                    img={item.image_url}
+                    img_url={item.image_url}
                     website={item.url}
                     rating={item.rating}
                 />
@@ -23,8 +27,8 @@ export default class List extends React.Component {
         })
 
         return (
-            <ul>
-                <h2>PLACES IN : {this.props.match.params.location}</h2>
+            <ul className='list'>
+                <h2 className='list-header' >PLACES IN : {this.props.match.params.location.toUpperCase()}</h2>
                 {list}
             </ul>
         )

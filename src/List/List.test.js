@@ -15,9 +15,9 @@ describe('List component', () => {
         ReactDom.render(<BR><List {...props} /></BR>, div);
         ReactDom.unmountComponentAtNode(div);
     });
-
+   
     it('renders UI as expected', () => {
         const item= renderer.create(<BR><List {...props} /></BR>);
         expect(item.toJSON()).toMatchSnapshot();
     })
-}) 
+})

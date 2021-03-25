@@ -1,12 +1,14 @@
 import React from 'react';
 import TokenService from '../Services/token-service';
 import AuthCalls from '../Services/Auth_Service';
-
+import RestaurantContext from '../Context';
 
 export default class LoginForm extends React.Component {
-    state = {
-        error: null,
-    }
+
+   static contextType = RestaurantContext;
+   state = {
+       error: null,
+   }
 
     handleForm =(e)=> {
         e.preventDefault();
@@ -16,7 +18,7 @@ export default class LoginForm extends React.Component {
             username: username.value,
             password: password.value,
         }
-
+        
         AuthCalls.postLogin(credentials)
         .then(res => {
             username.value = '';
@@ -24,21 +26,42 @@ export default class LoginForm extends React.Component {
             TokenService.saveAuthToken(res.authToken);
             this.props.onLoginSuccess();
         })
-        .catch(res => {
-            this.setState({
-                error: res,
-            })
+        .catch(err => {
+            this.context.setError(err)
         })
     }
+
+    handleUserNameCleanUp = (e) => {
+        e.preventDefault();
+        let userName = e.target;
+        if(userName.value !== null) {
+            userName.value = '';
+            this.context.resetError();
+        } 
+    }
+
+    handlePasswordCleanUp = (e) => {
+        e.preventDefault();
+        let password = e.target;
+        if(password.value !== null) {
+           password.value = '';
+           this.context.resetError();
+        }  
+    }
+    
     render() {
         return (
             <div>
-                <form onSubmit={this.handleForm}>
-                    <input type='input' id='username' placeholder='username' />
-                    <input type='password' id='password' placeholder='password' />
+                <form className='auth-form' onSubmit={this.handleForm}>
+                    <input className="form__field form__field3" type='input' id='username' placeholder='username' required onClick={this.handleUserNameCleanUp}/>
+                    <br />
+                    <input className="form__field form__field3" type='password' id='password' placeholder='password' required onClick={this.handlePasswordCleanUp} />
                     <button type='submit'>Submit</button>
+                    <button className='login-button' type="reset" onClick={this.handleAfterErrorDisplay}>
+                        Cancel
+                    </button>
                 </form>
             </div>
         )
     }
-} 
+}

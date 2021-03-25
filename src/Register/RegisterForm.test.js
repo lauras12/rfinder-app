@@ -9,15 +9,15 @@ describe('List component', () => {
     const props = {
         onRegisterSuccess: () => {},
     }
-
+   
     it ('renders without crashing',() => {
         const div = document.createElement('div');
         ReactDom.render(<BR><RegisterForm {...props} /></BR>, div);
         ReactDom.unmountComponentAtNode(div);
     });
-
+   
     it('renders UI as expected', () => {
         const item= renderer.create(<BR><RegisterForm{...props} /></BR>);
         expect(item.toJSON()).toMatchSnapshot();
     })
-}) 
+})

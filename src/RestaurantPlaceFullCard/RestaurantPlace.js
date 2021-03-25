@@ -2,6 +2,9 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import RestaurantContext from '../Context';
 import RestaurantCalls from '../Services/RestaurantCalls';
+import './RestaurantPlace.css';
+import YelpRating from '../YelpRating/YelpRating';
+import Finds from '../FindsRating/Finds';
 
 
 export default withRouter(class RestaurantPlace extends React.Component {
@@ -19,22 +22,18 @@ export default withRouter(class RestaurantPlace extends React.Component {
         let placeId = Number(this.props.match.params.placeId);
         RestaurantCalls.deleteRestaurantPlace(placeId)
             .then(() => {
-                console.log('review deleted')
                 this.props.history.push('/')
             })
             .catch(err => {
-                this.setState({
-                    error: err
-                })
-            })
+                if (err) {
+                    this.setState({
+                        error: 'Server problems.'
+                    });
+                }
+            });
 
     }
 
-    // handleUserIdentityBeforeDeleteAndPost = () => {
-    //     let token = TokenService.getAuthToken()
-    //     let user = TokenService.verifyJWT(token)
-    //     console.log(user, token)
-    // }
 
     render() {
         // this.handleUserIdentityBeforeDeleteAndPost()
@@ -42,14 +41,14 @@ export default withRouter(class RestaurantPlace extends React.Component {
 
         let placeId = Number(this.props.match.params.placeId);
         let yelpId = this.props.match.params.yelpId;
-        console.log(this.context.restaurantPlaces, 'CONTEXT');
+
         const selectedPlace = this.context.restaurantPlaces.find(pl => pl.yelp_id === yelpId)
-      
-        const { name, img, url, yelp_rating, location_str, location_city, location_zip, location_st, display_phone, restaurant_reviews_count, category, review } = selectedPlace;
+
+        const { name, img, url, yelp_rating, location_str, location_city, location_zip, location_st, display_phone, checkedFinds, category, review } = selectedPlace;
 
         const restaurantFinds = selectedPlace.checkedFinds.map((el, key) => {
             return (
-                <li key={key}>{el}</li>
+                <li key={key} className='find-list' >{el}</li>
             )
         })
 
@@ -62,55 +61,88 @@ export default withRouter(class RestaurantPlace extends React.Component {
         })
         const practicesList = remainingPractices.map((el, key) => {
             return (
-                <li key={key}>
+                <li key={key} className='find-list'>
                     {el}
                 </li>
             )
         })
 
         const currentUsersPlace = this.context.userPlaces.find(place => place.id === placeId)
-        
+
         return (
 
-            <div>
-                <img src={img} />
-                {currentUsersPlace ?
-                    <section>
-                        <Link to={`/edit/${placeId}/`}>
-                            <button>Edit review</button>
-                        </Link>
-                        <button type='button' onClick={this.deleteReview}>delete</button>
-                    </section>
-                    :
-                    <section>
-                        <Link to={`/edit/${placeId}/`} >
-                            <button disabled={!currentUsersPlace}>Edit review</button>
-                        </Link>
-                        <button type='button' disabled={!currentUsersPlace} >delete</button>
-                        <h4>Please login to place a review or delete </h4>
-                    </section>
-                }
+            <div className='item'>
+                <div className='items-box'>
+                    <div className='medium-img-container'>
+                        <img src={img} />
+                    </div>
+
+                    <div className='text-area1'>
+
+                        <div className='error'>
+                            {this.state.error ? this.state.error : null}
+                        </div>
 
 
+                        <h2>{name}</h2>
+                        <h3>Address :</h3><p>{location_str}, {location_city}, {location_st}, {location_zip}</p>
+                        <br />
+                        <p>{display_phone}</p>
+                        <br />
+                        <h3>Category :</h3><p>{category}</p>
+                        <a href={`${url}`}><h3>Visit</h3></a>
+                        <div className='rating-box'>
+                            <p>Yelp rating: </p>
+                            <YelpRating rating={yelp_rating} />
+                        </div>
+                        <div className='rating-box'>
+                            <p>ESSTAURAATURANTfindsUP rating: </p>
+                            <Finds checkedFinds={checkedFinds} />
+                        </div>
+                        <br />
+                        <br />
+                        <div className='error'>
+                            {this.state.error ? this.state.error.message : null}
+                        </div>
+                        {currentUsersPlace ?
+                            <section>
+                                <Link to={`/edit/${placeId}/`}>
+                                    <button>Edit review</button>
+                                </Link>
+                                <button type='button' onClick={this.deleteReview}>delete</button>
+                            </section>
+                            :
+                            <section>
+                                <Link to={`/edit/${placeId}/`} >
+                                    <button disabled={!currentUsersPlace} className='disabled'>Edit review</button>
+                                </Link>
+                                <button type='button' disabled={!currentUsersPlace} className='disabled'>delete</button>
+                                <h4>Please login to place a review or delete </h4>
+                            </section>
+                        }
 
-                <h2>{name}</h2>
-                <h3>Address:</h3><p>{location_str}, {location_city}, {location_st}, {location_zip}</p>
-                <h3>{display_phone}</h3>
-                <p>{category}</p>
-                <h3>Yelp rating: {yelp_rating}</h3>
-                <h3>finds reviews count: {restaurant_reviews_count}</h3>
-                <h2>This location has been noted for following Earth friendly practices:</h2>
-                <ul>
-                    {restaurantFinds}
-                </ul>
-                <h2>Additional comments:</h2>
-                <p>{review[0]}</p>
-                <h2>Support our mission during your next visit, by pointing out the following improvements that could be made:</h2>
-                <ul>
-                    {practicesList}
-                </ul>
+                    </div>
+                </div>
+                <div className='text-area2'>
+                    <h2>This location has been noted for following Earth friendly practices:</h2>
+                    <ul>
+                        {restaurantFinds}
+                    </ul>
+                    <br />
+                    <h2>Additional comments:</h2>
+                    <br />
+                    <div id='comments'><p>{review}</p></div>
+
+                    <br />
+                    <h2 id='S' >Support our mission during your next visit, by pointing out the following improvements that could be made:</h2>
+                    <br />
+                    <ul>
+                        {practicesList}
+                    </ul>
+                </div>
 
             </div>
         )
     }
 })
+

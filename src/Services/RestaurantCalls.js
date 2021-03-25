@@ -1,25 +1,22 @@
 import config from '../config';
 import TokenService from '../Services/token-service';
 
-const RestuarantCalls = {
+const RestaurantCalls = {
     getAllReviewedPlaces: () => {
         const URL = config.API_ENDPOINT + '/';
-        console.log(URL);
         return fetch(URL)
             .then(res => {
                 if (!res.ok) {
                     return res.json()
                         .then(err => {
-                            console.log(err);
                             throw new Error(err.error.message);
                         })
-                }
-                console.log(res);
+                };
                 return res;
             })
             .then(res => res.json());
     },
-
+    
     checkReviewCount: (placeId) => {
         const URL = config.API_ENDPOINT + `/${placeId}/count`;
         return fetch(URL)
@@ -27,11 +24,9 @@ const RestuarantCalls = {
                 if (!res.ok) {
                     return res.json()
                         .then(err => {
-                            console.log(err);
                             throw new Error(err.error.message);
                         })
-                }
-                console.log(res);
+                };
                 return res;
             })
             .then(res => res.json());
@@ -39,7 +34,6 @@ const RestuarantCalls = {
 
     postNewReview: (placeId, newPlace) => {
         const URL = config.API_ENDPOINT + `/${placeId}/review`;
-        console.log(URL, newPlace);
         return fetch(URL, {
             method: 'POST',
             headers: {
@@ -52,17 +46,15 @@ const RestuarantCalls = {
                 if (!res.ok) {
                     return res.json()
                         .then(err => {
-                            console.log(err)
                             throw new Error(err.error.message)
                         })
-                }
-                console.log(res)
+                };
                 return res;
             })
             .then(res => res.json())
     },
 
-    getAllRestuarantPlacesByUser: () => {
+    getAllRestaurantPlacesByUser: () => {
         const URL = config.API_ENDPOINT + '/user';
         return fetch(URL, {
             method: 'GET',
@@ -75,16 +67,15 @@ const RestuarantCalls = {
                 if (!res.ok) {
                     return res.json()
                         .then(err => {
-                            console.log(err)
                             throw new Error(err.error.message)
                         })
-                }
+                };
                 return res;
             })
             .then(res => res.json())
     },
 
-    getRestuarantPlaceById: (placeId) => {
+    getRestaurantPlaceById: (placeId) => {
         const URL = config.API_ENDPOINT + `/place/${placeId}`;
         return fetch(URL, {
             method: 'GET',
@@ -97,11 +88,9 @@ const RestuarantCalls = {
                 if (!res.ok) {
                     return res.json()
                         .then(err => {
-                            console.log(err)
                             throw new Error(err.error.message)
                         })
-                }
-                console.log(res)
+                };
                 return res;
             })
             .then(res => res.json())
@@ -109,9 +98,9 @@ const RestuarantCalls = {
     },
 
 
-    editRestuarantPlace: (placeId, updatedInfo) => {
+    editRestaurantPlace: (placeId, updatedInfo) => {
         const URL = config.API_ENDPOINT + `/edit/${placeId}`;
-        console.log(URL)
+       
         return fetch(URL, {
             method: 'PATCH',
             headers: {
@@ -124,17 +113,15 @@ const RestuarantCalls = {
                 if (!res.ok) {
                     return res.json()
                         .then(err => {
-                            console.log(err)
                             throw new Error(err.error.message)
                         })
-                }
-                console.log(res)
+                };
                 return res;
             })
             .then(res => res.json())
     },
 
-    deleteRestuarantPlace: (placeId) => {
+    deleteRestaurantPlace: (placeId) => {
         const URL = config.API_ENDPOINT + `/place/delete/${placeId}`;
         return fetch(URL, {
             method: 'DELETE',
@@ -145,15 +132,10 @@ const RestuarantCalls = {
         })
             .then(res => {
                 if (!res.ok) {
-                    console.log('error on delete')
                     throw new Error('error on delete')
-
-                }
-
+                };
             })
-
     },
-
 }
 
-export default RestuarantCalls;
+export default RestaurantCalls;

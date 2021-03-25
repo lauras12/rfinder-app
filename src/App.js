@@ -9,14 +9,12 @@ import RegisterPage from './Register/RegisterPage';
 import List from './List/List';
 import ReviewForm from './ReviewForm/ReviewForm';
 import ReviewedList from './ReviewedList/ReviewedList';
-import RestaurantPlace from './RestaurantPlaceFullCard/RestaurantPlace';
+import RestaurantPlace from './RestaurantPLaceFullCard/RestaurantPlace';
 import EditReview from './EditRestaurantPlace/EditRestaurantPlace';
-import Footer from './Header/Footer';
-import SearchBar from './SearchBar/SearchBar';
 
 export default class App extends React.Component {
   render() {
-    
+
     return (
       <div>
 
@@ -24,29 +22,21 @@ export default class App extends React.Component {
         <header>
           <Route path='/' component={Nav} />
           <Route path='/' component={Header} />
-          <Route  path='/' component={SearchBar} />  
         </header>
-       
+
         <main>
-       
-        <Route exact path='/search' component={SmallForm} />
-       
-       
-       
+
+          <Route exact path='/search' component={SmallForm} />
           <Route exact path='/' component={ReviewedList} />
 
           <Route path='/login' component={LoginPage} />
           <Route path='/register' component={RegisterPage} />
 
-        
-         
           <Route exact path='/user/places' component={ReviewedList} />
-          
           <Route exact path='/city/:city' component={ReviewedList} />
-          
           <Route exact path='/category/:category' component={ReviewedList} />
 
-          
+
           <Route exact path='/list/:location' component={List} />
           <Route exact path='/restaurant_place/:yelpId/:placeId' component={RestaurantPlace} />
           <Route exact path='/edit/:placeId/' component={EditReview} />
@@ -54,12 +44,13 @@ export default class App extends React.Component {
 
           <Route exact path='/reviews/:location' component={ReviewedList} />
           <Route exact path='/reviews/:location' component={List} />
-         
+
         </main>
-        <Route path='/' component={Footer} />
+
       </div>
     );
   };
 
 };
+
 

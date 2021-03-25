@@ -10,15 +10,15 @@ describe('List component', () => {
         match: {params: {path: '/'}},
         history: {push: '/'}
     }
-
+   
     it ('renders without crashing',() => {
         const div = document.createElement('div');
         ReactDom.render(<BR><GCP><EditRestaurantPlace {...props} /></GCP></BR>, div);
         ReactDom.unmountComponentAtNode(div);
     });
-
+   
     it('renders UI as expected', () => {
         const item= renderer.create(<BR><GCP><EditRestaurantPlace {...props} /></GCP></BR>);
         expect(item.toJSON()).toMatchSnapshot();
     })
-}) 
+})

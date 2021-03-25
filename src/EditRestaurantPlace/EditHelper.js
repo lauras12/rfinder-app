@@ -1,3 +1,5 @@
+
+
 const findObjects = {
     'No single use plastic': 1, 
      'Compostable take-out containers and cups': 2 ,
@@ -22,16 +24,15 @@ const EditHelper = {
 changeFindIntoNUM: (finds) => {
         let finalFindList = [];
         finds.forEach(find => {
-           console.log(find)
             for(let [key,value] of Object.entries(findObjects)){
                 if(key === find) {
                     finalFindList.push(value)
                 } 
             }
         })
-
+        
         return finalFindList;
     }
 }
 
-export default EditHelper; 
+export default EditHelper;

@@ -1,6 +1,4 @@
-import React, { createContext } from 'react';
-//import STORE from './dummyData';
-
+import React from 'react';
 
 const RestaurantContext = React.createContext({
     list: [],
@@ -13,6 +11,9 @@ const RestaurantContext = React.createContext({
     categorySelection: Boolean,
     citySortPlaces: [],
     categorySortPlaces: [],
+    //error: null,
+    setError: () => {},
+    resetError: () => {},
     setList: () => { },
     setCurrentUser: ()=> {},
     setUserSelection: () => {},
@@ -37,9 +38,20 @@ export class RestaurantContextProvider extends React.Component {
             currentUser:null,
             citySortPlaces: [],
             categorySortPlaces: [],
+            error: null,
         }
     }
 
+    setError = (err) => {
+        this.setState({
+            error: err
+        })
+    }
+    resetError = () => {
+        this.setState({
+            error: null,
+        })
+    }
     setList = data => {
         this.setState({
             list: data,
@@ -51,7 +63,6 @@ export class RestaurantContextProvider extends React.Component {
         });
     }
     setCurrentUser =(id) => {
-        console.log(id, 'USERID')
         this.setState({
             currentUser: id,
         })
@@ -81,7 +92,6 @@ export class RestaurantContextProvider extends React.Component {
 
     categorySort = category => {
         let reviews = this.state.restaurantPlaces.filter(pl => {
-            console.log(category, pl.category);
             return pl.category === category;
         });
        
@@ -92,6 +102,7 @@ export class RestaurantContextProvider extends React.Component {
 
     }
     render() {
+        
         const contextValue = {
             list: this.state.list,
             restaurantPlaces: this.state.restaurantPlaces,
@@ -103,12 +114,15 @@ export class RestaurantContextProvider extends React.Component {
             categorySelection: this.state.categorySelection,
             currentUser: this.state.currentUser,
             userSort: this.userSort,
+            setError: this.setError,
+            resetError: this.resetError,
             setList: this.setList,
             setRestaurantPlaces: this.setRestaurantPlaces,
             setCurrentUser: this.setCurrentUser,
             setUserSelection: this.setUserSelection,
             citySort: this.citySort,
             categorySort: this.categorySort,
+            error: this.state.error,
         };
         return (
             <RestaurantContext.Provider value={contextValue} >
