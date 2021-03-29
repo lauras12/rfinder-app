@@ -53,7 +53,7 @@ describe('List component', () => {
         match: {params: {id: 1}}
     }
 
-    it.only('renders without crashing', () => {
+    it('renders without crashing', () => {
         const div = document.createElement('div');
         ReactDom.render(<BR><RestaurantContext.Provider value={contextValue} ><ReviewForm  {...props} /></RestaurantContext.Provider ></BR>, div);
         ReactDom.unmountComponentAtNode(div);

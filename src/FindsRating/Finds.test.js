@@ -9,14 +9,14 @@ describe('Finds component', () => {
         checkedFinds: ['find1', 'find2']
     }
 
-    it.only('renders without crashing', () => {
+    it('renders without crashing', () => {
         const div = document.createElement('div');
         ReactDom.render(<Finds  {...props}/>, div);
         ReactDom.unmountComponentAtNode(div);
     });
 
     it('renders UI as expected', () => {
-        const item = renderer.create(<Finds {...props}/>, div);
+        const item = renderer.create(<Finds {...props}/>);
         expect(item.toJSON()).toMatchSnapshot();
     })
 })
