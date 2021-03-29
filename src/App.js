@@ -9,7 +9,7 @@ import RegisterPage from './Register/RegisterPage';
 import List from './List/List';
 import ReviewForm from './ReviewForm/ReviewForm';
 import ReviewedList from './ReviewedList/ReviewedList';
-import RestaurantPlace from './RestaurantPLaceFullCard/RestaurantPlace';
+import RestaurantPlace from './RestaurantPlaceFullCard/RestaurantPlace';
 import EditReview from './EditRestaurantPlace/EditRestaurantPlace';
 
 
