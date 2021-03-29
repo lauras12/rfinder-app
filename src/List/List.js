@@ -1,6 +1,6 @@
 import React from 'react';
 import RestaurantContext from '../Context';
-import ListItem from '../LIstItem/ListItem';
+import ListItem from '../ListItem/ListItem';
 import './List.css';
 
 
