@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component renders UI as expected 1`] = `
+<footer
+  className="footer"
+  id="contact"
+>
+  <div
+    className="scroll-to-top"
+  >
+    <button
+      className="anim"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-chevron-circle-up"
+        style={
+          Object {
+            "color": "#008000",
+            "fontSize": "5em",
+            "padding": "5px",
+          }
+        }
+      />
+    </button>
+  </div>
+  <div
+    className="footer-text"
+  >
+    <h4>
+      Thank you for visiting!
+    </h4>
+  </div>
+</footer>
+`;

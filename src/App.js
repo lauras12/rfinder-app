@@ -11,7 +11,8 @@ import ReviewForm from './ReviewForm/ReviewForm';
 import ReviewedList from './ReviewedList/ReviewedList';
 import RestaurantPlace from './RestaurantPlaceFullCard/RestaurantPlace';
 import EditReview from './EditRestaurantPlace/EditRestaurantPlace';
-
+import Footer from './Footer/Footer';
+import SearchBar from './SearchBar/SearchBar';
 
 export default class App extends React.Component {
   render() {
@@ -23,6 +24,7 @@ export default class App extends React.Component {
         <header>
           <Route path='/' component={Nav} />
           <Route path='/' component={Header} />
+          <Route path='/' component={SearchBar} />
         </header>
 
         <main>
@@ -47,7 +49,7 @@ export default class App extends React.Component {
           <Route exact path='/reviews/:location' component={List} />
 
         </main>
-
+        <Route path='/' component={Footer} />
       </div>
     );
   };

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component renders UI as expected 1`] = `
+<div>
+  <div
+    className="bar"
+  >
+    <button
+      className="yelp"
+      onClick={[Function]}
+      type="button"
+    >
+      To add new places to our records, CLICK HERE
+    </button>
+  </div>
+</div>
+`;
