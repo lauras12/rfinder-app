@@ -20,7 +20,7 @@ export default function Header(props) {
 
             {(!TokenService.hasAuthToken(config.TOKEN_KEY)) ? <h3 className='h-text'>Welcome to Restaurant Finder!
                 <br />
-                To post a review and browse through details of other user's reviews <a href={'/register'}>register </a> for the account or <a href={'/login'}>login to demo account </a>using <span>username : 'demo', password: 'demo12345'.</span>
+                To post a review and browse through details of other user's reviews <a href={'/register'}>register </a> for the account or <a href={'/login'}>login to demo account </a>using <span>username : 'demo', password: 'Demo!12345'.</span>
             </h3> : null}
            
            
