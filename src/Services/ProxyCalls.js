@@ -7,7 +7,7 @@ const ProxyCalls = {
         return fetch(URL, {
             headers: {
                 'Access-Control-Allow-Origin': '*',
-                'Authorization': `Bearer ${config.API_KEY}`
+                'Authorization': `Bearer ${config.REACT_APP_API_KEY}`
             },
         }) 
         .then(res => {
