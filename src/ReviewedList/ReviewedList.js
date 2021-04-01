@@ -107,6 +107,7 @@ export default class ReviewedList extends React.Component {
 
 
     render() {
+        console.log(this.state.error);
         const { userSelection, citySelection, categorySelection } = this.context;
 
         return (
@@ -115,7 +116,7 @@ export default class ReviewedList extends React.Component {
                     <h2>Restaurant<span className='finds'> Finder</span> reviewed places: </h2>
                 </div>
                 <div className='error'>
-                    {this.state.error ? this.state.error : null}
+                    {this.state.error ? this.state.error.message : null}
                 </div>
                 <div className='mid-container'>
                     {
