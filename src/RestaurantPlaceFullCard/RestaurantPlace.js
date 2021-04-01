@@ -74,7 +74,7 @@ export default withRouter(class RestaurantPlace extends React.Component {
             <div className='item'>
                 <div className='items-box'>
                     <div className='medium-img-container'>
-                        <img src={img} />
+                        <img src={img} alt="item"/>
                     </div>
 
                     <div className='text-area1'>

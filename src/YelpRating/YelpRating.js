@@ -24,8 +24,8 @@ export default function YelpRating(props) {
         5: five
     }
 
-    const starsImg = Object.keys(stars).map(num => {
-        if (num == props.rating) {
+    const starsImg = Object.keys(stars).forEach(num => {
+        if (num === props.rating) {
             return (
                 <img className='starsImg' key={props.rating} src={stars[num]} alt='yelp star'/>
             );

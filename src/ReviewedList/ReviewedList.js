@@ -136,7 +136,7 @@ export default class ReviewedList extends React.Component {
                                     categorySelection ? null :
                                         <section className='section3' >
                                             <h3>Sort reviews by category</h3>
-                                            <select className="form__field" disabled={this.context.categorySelection === false}  className="form__field  disabled">
+                                            <select disabled={this.context.categorySelection === false}  className="form__field  disabled">
                                                 <option value=" ">Choose one </option>
                                                 <option value="Coffee-shop">Coffee-shops</option>
                                                 <option value="Bakery">Bakeries</option>
