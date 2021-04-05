@@ -56,13 +56,7 @@ exports[`List component renders UI as expected 1`] = `
         </p>
         <div
           className="starsImg"
-        >
-          <img
-            alt="yelp star"
-            className="starsImg"
-            src="1.png"
-          />
-        </div>
+        />
       </div>
     </div>
     <div

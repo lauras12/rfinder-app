@@ -38,6 +38,7 @@ export default withRouter(class ListItem extends React.Component {
                             <YelpRating rating={this.props.rating} />
                         </div>
                     </div>
+                    
                     <div className='button-container2'>
 
                         <button className='review-button' onClick={this.handleReviewButton}>Create Finds review</button>

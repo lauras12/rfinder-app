@@ -1,0 +1,347 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List component renders UI as expected 1`] = `
+<div
+  className="item"
+>
+  <div
+    className="items-box"
+  >
+    <div
+      className="medium-img-container"
+    >
+      <img
+        alt="food presentation from the place"
+      />
+    </div>
+    <div
+      className="text-area1"
+    >
+      <h2 />
+      <p>
+        , 
+      </p>
+      <p>
+         
+      </p>
+      <br />
+      <p />
+      <br />
+      <p>
+        Saved in category: 
+      </p>
+      <br />
+      <br />
+      <div
+        className="rating-box"
+      >
+        <p>
+          Yelp rating: 
+        </p>
+        <div
+          className="starsImg"
+        />
+      </div>
+    </div>
+  </div>
+  <br />
+  <form
+    className="edit-form"
+    onSubmit={[Function]}
+  >
+    <h2>
+      Noted for following reward worthy habits:
+    </h2>
+    <br />
+    <div>
+      <input
+        checked={false}
+        className="input"
+        onClick={[Function]}
+        type="checkbox"
+        value="Good vibes"
+      />
+      <label
+        htmlFor="chx1"
+      >
+        Good vibes
+      </label>
+      <br />
+    </div>
+    <div>
+      <input
+        checked={false}
+        className="input"
+        onClick={[Function]}
+        type="checkbox"
+        value="Great Wine selection"
+      />
+      <label
+        htmlFor="chx1"
+      >
+        Great Wine selection
+      </label>
+      <br />
+    </div>
+    <div>
+      <input
+        checked={false}
+        className="input"
+        onClick={[Function]}
+        type="checkbox"
+        value="Awesome service"
+      />
+      <label
+        htmlFor="chx1"
+      >
+        Awesome service
+      </label>
+      <br />
+    </div>
+    <div>
+      <input
+        checked={false}
+        className="input"
+        onClick={[Function]}
+        type="checkbox"
+        value="Contactless"
+      />
+      <label
+        htmlFor="chx1"
+      >
+        Contactless
+      </label>
+      <br />
+    </div>
+    <div>
+      <input
+        checked={false}
+        className="input"
+        onClick={[Function]}
+        type="checkbox"
+        value="Recycle and compost bins inside"
+      />
+      <label
+        htmlFor="chx1"
+      >
+        Recycle and compost bins inside
+      </label>
+      <br />
+    </div>
+    <div>
+      <input
+        checked={false}
+        className="input"
+        onClick={[Function]}
+        type="checkbox"
+        value="Clean bathrooms"
+      />
+      <label
+        htmlFor="chx1"
+      >
+        Clean bathrooms
+      </label>
+      <br />
+    </div>
+    <div>
+      <input
+        checked={false}
+        className="input"
+        onClick={[Function]}
+        type="checkbox"
+        value="Good Beer selection"
+      />
+      <label
+        htmlFor="chx1"
+      >
+        Good Beer selection
+      </label>
+      <br />
+    </div>
+    <div>
+      <input
+        checked={false}
+        className="input"
+        onClick={[Function]}
+        type="checkbox"
+        value="Gluten Free menu"
+      />
+      <label
+        htmlFor="chx1"
+      >
+        Gluten Free menu
+      </label>
+      <br />
+    </div>
+    <div>
+      <input
+        checked={false}
+        className="input"
+        onClick={[Function]}
+        type="checkbox"
+        value="Locally sourced produce"
+      />
+      <label
+        htmlFor="chx1"
+      >
+        Locally sourced produce
+      </label>
+      <br />
+    </div>
+    <div>
+      <input
+        checked={false}
+        className="input"
+        onClick={[Function]}
+        type="checkbox"
+        value="Organic produce"
+      />
+      <label
+        htmlFor="chx1"
+      >
+        Organic produce
+      </label>
+      <br />
+    </div>
+    <div>
+      <input
+        checked={false}
+        className="input"
+        onClick={[Function]}
+        type="checkbox"
+        value="Games to play"
+      />
+      <label
+        htmlFor="chx1"
+      >
+        Games to play
+      </label>
+      <br />
+    </div>
+    <div>
+      <input
+        checked={false}
+        className="input"
+        onClick={[Function]}
+        type="checkbox"
+        value="Outdoor patio"
+      />
+      <label
+        htmlFor="chx1"
+      >
+        Outdoor patio
+      </label>
+      <br />
+    </div>
+    <div>
+      <input
+        checked={false}
+        className="input"
+        onClick={[Function]}
+        type="checkbox"
+        value="Great for groups"
+      />
+      <label
+        htmlFor="chx1"
+      >
+        Great for groups
+      </label>
+      <br />
+    </div>
+    <div>
+      <input
+        checked={false}
+        className="input"
+        onClick={[Function]}
+        type="checkbox"
+        value="Private event space"
+      />
+      <label
+        htmlFor="chx1"
+      >
+        Private event space
+      </label>
+      <br />
+    </div>
+    <br />
+    <br />
+    <h3>
+      Additional comments
+    </h3>
+    <textarea
+      cols="50"
+      onChange={[Function]}
+      rows="10"
+    />
+    <h3
+      id="select-header"
+    >
+      Save in category: 
+    </h3>
+    <select
+      className="form__field2"
+      onChange={[Function]}
+      required={true}
+    >
+      <option
+        value=" "
+      >
+        Choose one 
+      </option>
+      <option
+        value="Coffee-shop"
+      >
+        Coffee-shop
+      </option>
+      <option
+        value="Bakery"
+      >
+        Bakery
+      </option>
+      <option
+        value="Juice-Bar"
+      >
+        Juice-Bar
+      </option>
+      <option
+        value="Restaurant"
+      >
+        Restaurant
+      </option>
+      <option
+        value="Breakfast"
+      >
+        Breakfast
+      </option>
+      <option
+        value="Lunch"
+      >
+        Lunch
+      </option>
+      <option
+        value="Dinner"
+      >
+        Dinner
+      </option>
+    </select>
+    <br />
+    <div
+      className="error"
+    />
+    <div
+      className="button-container2"
+    >
+      <button
+        type="submit"
+      >
+        Update Review
+      </button>
+      <button
+        onClick={[Function]}
+      >
+        Back
+      </button>
+    </div>
+  </form>
+</div>
+`;
