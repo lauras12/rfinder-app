@@ -105,19 +105,19 @@ export default class ReviewForm extends React.Component {
 
                             <br />
                             <input className='input' type='checkbox' value='1' id='chx1' onClick={this.handleSelection} />
-                            <label htmlFor='chx1'>No single use plastics</label>
+                            <label htmlFor='chx1'>Good vibes</label>
                             <br />
 
                             <input className='input' type='checkbox' value='2' onClick={this.handleSelection} />
-                            <label>Compostable take-out containers and cups</label>
+                            <label>Great Wine selection</label>
                             <br />
 
                             <input className='input' type='checkbox' value='3' onClick={this.handleSelection} />
-                            <label>No plastic bottled drinks</label>
+                            <label>Awesome service'</label>
                             <br />
 
                             <input className='input' type='checkbox' value='4' onClick={this.handleSelection} />
-                            <label>Composting food scraps</label>
+                            <label>Contactless</label>
                             <br />
 
                             <input className='input' type='checkbox' value='5' onClick={this.handleSelection} />
@@ -125,15 +125,15 @@ export default class ReviewForm extends React.Component {
                             <br />
 
                             <input className='input' type='checkbox' value='6' onClick={this.handleSelection} />
-                            <label>Hemp based or fabric napkins and paper towels</label>
+                            <label>Clean bathrooms</label>
                             <br />
 
                             <input className='input' type='checkbox' value='7' onClick={this.handleSelection} />
-                            <label>Papperless, fully computer based billing and record keeping</label>
+                            <label>Good Beer selection</label>
                             <br />
 
                             <input className='input' type='checkbox' value='8' onClick={this.handleSelection} />
-                            <label>Donating food to local shelter or 'free meal night'</label>
+                            <label>Gluten Free menu'</label>
                             <br />
 
                             <input className='input' type='checkbox' value='9' onClick={this.handleSelection} />
@@ -145,20 +145,20 @@ export default class ReviewForm extends React.Component {
                             <br />
 
                             <input className='input' type='checkbox' value='11' onClick={this.handleSelection} />
-                            <label>Resposible frying oil disposal</label>
+                            <label>Games to play</label>
                             <br />
 
 
                             <input className='input' type='checkbox' value='12' onClick={this.handleSelection} />
-                            <label>Saves energy by installing light timers and motion sensors</label>
+                            <label>Outdoor patio</label>
                             <br />
 
                             <input className='input' type='checkbox' value='13' onClick={this.handleAddAttribute} />
-                            <label>Saves water by installing low flow faucets</label>
+                            <label>Great for groups</label>
                             <br />
 
                             <input className='input' type='checkbox' value='14' onClick={this.handleAddAttribute} />
-                            <label>Saves energy and water by installing energy star equipmnet</label>
+                            <label>Private event space'</label>
                             <br />
                             <br />
                             <br />
