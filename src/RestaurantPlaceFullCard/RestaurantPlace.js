@@ -49,15 +49,12 @@ export default withRouter(class RestaurantPlace extends React.Component {
             return (
                 <li key={key} className='find-list' >{el}</li>
             )
-        })
+        });
 
 
-        const remainingPractices = [];
-        restaurantPractices.filter(el => {
-            if (!selectedPlace.checkedFinds.includes(el)) {
-                remainingPractices.push(el);
-            }
-        })
+        const remainingPractices = restaurantPractices.filter(
+            el => !selectedPlace.checkedFinds.includes(el)
+          );
         const practicesList = remainingPractices.map((el, key) => {
             return (
                 <li key={key} className='find-list'>

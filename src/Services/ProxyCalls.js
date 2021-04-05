@@ -3,7 +3,7 @@ import config from '../config';
 const ProxyCalls = {
     getThroughRestaurantFindApi: (term, location) => {
         //const URL = `http://localhost:8000/api/yelp/` + `?` + `term=${term}` +'&'+ `location=${location}`;
-        const URL = `https://rfinder-api.herokuapp.com/api/yelp/` + `?` + `term=${term}` +'&'+ `location=${location}`;
+        const URL = `https://rfinder-api.herokuapp.com/api/yelp/?term=${term}&location=${location}`;
         return fetch(URL, {
             headers: {
                 'Access-Control-Allow-Origin': '*',
