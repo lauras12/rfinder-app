@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+}
+header {
+    width: 100%;
+    padding: 30px;
+    background-color:  rgb(41, 106, 150);
+    font-family: 'Oswald', sans-serif;
+    margin: 0; 
+}
+body {
+    background-color:  rgba(187, 215, 233, 0.769);
+    background-position: right bottom, left top; 
+    background-size: cover; 
+    color: rgb(3, 45, 95);
+}
+
+main {
+    
+    width: 100%;
+    background-color: rgb(41, 106, 150); 
+    padding-bottom: 0px; 
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 0;
+}
+
+a {
+    color: rgba(129, 181, 245, 0.776);
+    text-decoration: none;
+    margin: 5px;
+}
+
+button {
+   
+    background-color: rgb(100, 171, 201);
+    border: 0px;
+    padding: 10px;
+    padding-left : 25px;
+    padding-right: 25px;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    margin: 10px;
+}
+.disabled {
+    background-color: rgba(116, 172, 196, 0.81);
+}
+input, h2, ul {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 30%;
+    margin: auto;
+    display: block;
+}
+ul, p , h3, h2 { 
+    margin: 0;
+    padding: 0;
+  }
+
+.error {
+min-height: 22px;
+color: rgb(172, 25, 6);
+font-size: larger;
+
+} 
+.disabled {
+    background-color: grey;
+}
+
+@media (min-width: 600px) {
+    header {
+      width: 80%;
+      margin: auto;
+     } 
+    main {
+        width: 70%;
+        margin:auto,
+    }
+    button {
+        margin: 20px;
+    }
+    }

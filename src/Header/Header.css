@@ -1,0 +1,40 @@
+
+.header {
+    width: 100%;
+    font-family: 'Anton', sans-serif;
+    color: rgb(4, 7, 14);
+    margin: 0;
+}
+
+
+.finds {
+    color: rgb(252, 252, 252);
+}
+.font {
+    color: rgb(47, 108, 177);
+    padding: 3px;
+}
+.h-text {
+    line-height: 1.6;
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(194, 213, 229);
+}
+span {
+    color: rgb(231, 143, 224);
+}
+
+@media (min-width: 600px) {
+    .header {
+        font-size: 5.5em;
+        padding-top: 30px;
+     
+     } 
+    main {
+        width: 70%;
+        margin: auto;
+      }
+    .h-text {
+        width: 70%;
+        margin-left: 30%;
+    }
+    }

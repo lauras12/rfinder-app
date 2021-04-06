@@ -1,0 +1,25 @@
+.auth{
+    background-position: right bottom, left top; 
+    background-size: cover; 
+    background-size: 100%; 
+     padding-bottom: 300px;
+    padding-top: 30px;
+   
+}
+
+#auth {
+   background-color:rgb(253, 235, 212) ;
+   padding-left: 30px;
+   display: flex;
+   max-height: 100px;
+}
+.auth-form {
+    padding-left: 30px;
+    padding: 40px;
+   
+}
+.form__field3 {
+    width: 30%;
+    margin: 5px;
+    background-color:rgb(230, 251, 245) ;
+}

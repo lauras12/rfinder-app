@@ -36,8 +36,9 @@ export default withRouter(class RestaurantPlace extends React.Component {
 
 
     render() {
-        // this.handleUserIdentityBeforeDeleteAndPost()
-        const restaurantPractices = ['Good vibes', 'Great Wine selection', 'Awesome service', 'Contactless', 'Recycle and compost bins inside', 'Clean bathrooms', 'Good Beer selection', 'Gluten Free menu', 'Locally sourced produce', 'Organic produce', 'Organic produce', 'Games to play', 'Outdoor patio', 'Greate for groups', 'Private event space']
+
+        const restaurantPractices = ['Good vibes', 'Great Wine selection', 'Awesome service', 'Contactless', 'Recycle and compost bins inside', 'Clean bathrooms', 'Good Beer selection', 'Gluten Free menu', 'Locally sourced produce', 'Organic produce', 'Games to play', 'Outdoor patio', 'Greate for groups', 'Private event space']
+
 
         let placeId = Number(this.props.match.params.placeId);
         let yelpId = this.props.match.params.yelpId;
@@ -92,7 +93,7 @@ export default withRouter(class RestaurantPlace extends React.Component {
                             <YelpRating rating={yelp_rating} />
                         </div>
                         <div className='rating-box'>
-                            <p>ESSTAURAATURANTfindsUP rating: </p>
+                            <p>Restaurant Finder rating: </p>
                             <Finds checkedFinds={checkedFinds} />
                         </div>
                         <br />
@@ -120,7 +121,7 @@ export default withRouter(class RestaurantPlace extends React.Component {
                     </div>
                 </div>
                 <div className='text-area2'>
-                    <h2>This location has been noted for following Earth friendly practices:</h2>
+                    <h2>This location has been noted for following attributes:</h2>
                     <ul>
                         {restaurantFinds}
                     </ul>
@@ -130,7 +131,7 @@ export default withRouter(class RestaurantPlace extends React.Component {
                     <div id='comments'><p>{review}</p></div>
 
                     <br />
-                    <h2 id='S' >Support our mission during your next visit, by pointing out the following improvements that could be made:</h2>
+                    <h2 id='S' >Be sure to check off any other attributes being made!</h2>
                     <br />
                     <ul>
                         {practicesList}
