@@ -2,25 +2,25 @@
 .header {
     width: 100%;
     font-family: 'Anton', sans-serif;
-    color: rgb(4, 7, 14);
+    color: #4F4846;
     margin: 0;
 }
 
 
 .finds {
-    color: rgb(252, 252, 252);
+    color: #FDF8F5;
 }
 .font {
-    color: rgb(47, 108, 177);
+    color: #FDF8F5;
     padding: 3px;
 }
 .h-text {
     line-height: 1.6;
     font-family: 'Montserrat', sans-serif;
-    color: rgb(194, 213, 229);
+    color: #FDF8F5;
 }
 span {
-    color: rgb(231, 143, 224);
+    color: #266150;
 }
 
 @media (min-width: 600px) {

@@ -1,9 +1,9 @@
 .footer {
-    background-color: rgb(9, 42, 73);    
+    background-color: #FDF8F5;    
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     padding-top: 30px;
-    color: rgb(231, 143, 224);
+    color: #266150;
 }
 .footer-text {
     padding-bottom: 15px;

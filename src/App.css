@@ -4,35 +4,35 @@
 header {
     width: 100%;
     padding: 30px;
-    background-color:  rgb(41, 106, 150);
+    background-color: #E8CEBF;
     font-family: 'Oswald', sans-serif;
     margin: 0; 
 }
 body {
-    background-color:  rgba(187, 215, 233, 0.769);
+    background-color:  #DDAF94;
     background-position: right bottom, left top; 
     background-size: cover; 
-    color: rgb(3, 45, 95);
+    color: #FDF8F5;
 }
 
 main {
     
     width: 100%;
-    background-color: rgb(41, 106, 150); 
+    background-color: #E8CEBF; 
     padding-bottom: 0px; 
     font-family: 'Montserrat', sans-serif;
     margin-bottom: 0;
 }
 
 a {
-    color: rgba(129, 181, 245, 0.776);
+    color: #266150;
     text-decoration: none;
     margin: 5px;
 }
 
 button {
    
-    background-color: rgb(100, 171, 201);
+    background-color: #DDAF94;
     border: 0px;
     padding: 10px;
     padding-left : 25px;
@@ -43,7 +43,7 @@ button {
     margin: 10px;
 }
 .disabled {
-    background-color: rgba(116, 172, 196, 0.81);
+    background-color: #4F4846;
 }
 input, h2, ul {
     margin: 0;
