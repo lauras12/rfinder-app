@@ -8,7 +8,7 @@ Restaurant Finder is a place where users can login and search for places to eat 
 
 This application was created to allow users to save and rate their favorite places.  Being able to categorize different places as "having good vibes" or "having a great beer list and outdoor patio" are just some of the many ways users can categorize their saves venues. 
   
-<img src='https://green-images.s3.amazonaws.com/green-thumbs-screens/Screen+Shot+2020-03-24+at+11.00.58+AM+(2).png' width ='200' > | <img src='https://green-images.s3.amazonaws.com/green-thumbs-screens/Screen+Shot+2020-03-24+at+11.01.16+AM+(2).png' width='200' > 
+<img src='https://i.postimg.cc/4NRjXDWK/home.png' width ='200' > | <img src='https://i.postimg.cc/j2P9zcSd/login.png' width='200' > 
 
 
 ## ENDPOINTS AND EXPECTED DATA
