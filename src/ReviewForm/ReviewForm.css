@@ -3,10 +3,9 @@
     width:90%;
     margin: auto;
     margin-bottom: 30px;
-    background-color: whitesmoke;
-    background-color:rgb(230, 251, 245) ;
+    background-color: #FDF8F5;
     padding-bottom: 100px;
-    color: rgb(49, 56, 70); 
+    color: #266150; 
 }
 
 .form__field2 {
@@ -16,7 +15,7 @@
     outline: 0;
     font-size: 1rem;
     color: grey;
-    background: white;  
+    background: #FDF8F5;  
     padding-left: 5px;
     border-radius: 5px;
     height: 30px;
