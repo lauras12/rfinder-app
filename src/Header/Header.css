@@ -23,6 +23,10 @@ span {
     color: #266150;
 }
 
+.des {
+    color: #4F4846;
+}
+
 @media (min-width: 600px) {
     .header {
         font-size: 5.5em;
