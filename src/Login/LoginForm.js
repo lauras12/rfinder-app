@@ -3,6 +3,7 @@ import TokenService from '../Services/token-service';
 import AuthCalls from '../Services/Auth_Service';
 import RestaurantContext from '../Context';
 
+/* initial login form */
 export default class LoginForm extends React.Component {
 
    static contextType = RestaurantContext;
@@ -49,6 +50,7 @@ export default class LoginForm extends React.Component {
         }  
     }
     
+    /* form field */
     render() {
         return (
             <div>

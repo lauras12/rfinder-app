@@ -3,7 +3,7 @@ import ProxyCalls from '../Services/ProxyCalls'
 import RestaurantContext from '../Context';
 import './SmallForm.css';
 
-
+/* form for the rest search on web page */
 export default class SmallForm extends React.Component {
     static contextType = RestaurantContext;
     constructor() {

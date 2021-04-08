@@ -7,7 +7,7 @@ import './Header.css';
 
 export default function Header(props) {
 
-   
+   /*main header with className='header' and description below*/
     return (
         <div>
             <h1 className='header'>

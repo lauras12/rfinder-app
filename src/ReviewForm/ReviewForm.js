@@ -72,6 +72,7 @@ export default class ReviewForm extends React.Component {
         this.props.history.goBack();
     }
 
+    /* rest info from user review */
     render() {
         const id = this.props.match.params.id;
         const currentPlace = this.context.list.find(item => item.id === id)

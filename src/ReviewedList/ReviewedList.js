@@ -17,7 +17,7 @@ export default class ReviewedList extends React.Component {
 
         }
     }
-
+/* list of resturant reviews by users */
     componentDidMount = () => {
             scroll.scrollToTop();
         

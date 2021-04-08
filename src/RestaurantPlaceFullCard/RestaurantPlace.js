@@ -34,7 +34,7 @@ export default withRouter(class RestaurantPlace extends React.Component {
 
     }
 
-
+/* rendering all of the different restaurant attributes  */
     render() {
 
         const restaurantPractices = ['Good vibes', 'Great Wine selection', 'Awesome service', 'Contactless', 'Recycle and compost bins inside', 'Clean bathrooms', 'Good Beer selection', 'Gluten Free menu', 'Locally sourced produce', 'Organic produce', 'Games to play', 'Outdoor patio', 'Greate for groups', 'Private event space']
@@ -65,7 +65,7 @@ export default withRouter(class RestaurantPlace extends React.Component {
         })
 
         const currentUsersPlace = this.context.userPlaces.find(place => place.id === placeId)
-
+/* renders the resturant info */
         return (
 
             <div className='item'>
@@ -120,6 +120,7 @@ export default withRouter(class RestaurantPlace extends React.Component {
 
                     </div>
                 </div>
+                
                 <div className='text-area2'>
                     <h2>This location has been noted for following attributes:</h2>
                     <ul>

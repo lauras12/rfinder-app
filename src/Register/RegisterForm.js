@@ -2,7 +2,7 @@ import React from 'react';
 import AuthCalls from '../Services/Auth_Service';
 import RestaurantContext from '../Context';
 
-
+/* making sure that the res is fully complete */
 export default class RegisterForm extends React.Component {
     static contextType = RestaurantContext;
 
@@ -61,7 +61,7 @@ export default class RegisterForm extends React.Component {
         }
     
     render() {
-
+/* register form */
     return (
         <div>
             <div>

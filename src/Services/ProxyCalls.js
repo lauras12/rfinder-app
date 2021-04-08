@@ -1,5 +1,6 @@
 import config from '../config';
 
+/* proxy call to the YELP API */
 const ProxyCalls = {
     getThroughRestaurantFindApi: (term, location) => {
         //const URL = `http://localhost:8000/api/yelp/` + `?` + `term=${term}` +'&'+ `location=${location}`;

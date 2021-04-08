@@ -10,6 +10,7 @@ import four from '../yelpStarIMG/4.png';
 import fourAndHalf from '../yelpStarIMG/4.5.png';
 import five from '../yelpStarIMG/5.png'
 
+/* yelp rating */
 export default function YelpRating(props) {
     const stars = {
         0: zero,

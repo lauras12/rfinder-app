@@ -1,7 +1,7 @@
 import config from '../config';
 import jwt from 'jsonwebtoken';
 
-
+/* token service */
 const TokenService = {
     saveAuthToken(token) {
         window.sessionStorage.setItem(config.TOKEN_KEY, token);

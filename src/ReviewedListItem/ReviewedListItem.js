@@ -6,7 +6,7 @@ import Finds from '../FindsRating/Finds';
 import './ReviewedListItem.css';
 
 export default withRouter(function ReviewedListItem(props) {
-
+/* open resturant full card */
     const openFullCard = (e) => {
         const token = TokenService.hasAuthToken(config.TOKEN_KEY)
         if (!token) {

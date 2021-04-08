@@ -22,7 +22,7 @@ export default class LoginPage extends React.Component {
         if (this.context.error) {
             error = this.context.error.message;
         }
-        
+        /* login button */
         return (
             <div className='auth'>
                 

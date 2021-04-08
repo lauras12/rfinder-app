@@ -1,6 +1,6 @@
 import config from '../config';
 
-
+/* authcalls form the YELP api endpoint */
 const AuthCalls = {
     postLogin: (credentials) => {
         const URL = config.API_ENDPOINT + '/login';

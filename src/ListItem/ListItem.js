@@ -5,7 +5,7 @@ import config from '../config';
 import './ListItem.css';
 import YelpRating from '../YelpRating/YelpRating';
 
-
+/* auth for login and review */
 export default withRouter(class ListItem extends React.Component {
 
     handleReviewButton = () => {
@@ -16,6 +16,8 @@ export default withRouter(class ListItem extends React.Component {
             this.props.history.push(`/review/${this.props.id}`);
         }
     }
+
+    /* lists the search image from the rest search */
     render() {
         return (
             <div className='list-item'>

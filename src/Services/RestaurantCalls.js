@@ -1,6 +1,7 @@
 import config from '../config';
 import TokenService from '../Services/token-service';
 
+/* adding a resturant using the API */
 const RestaurantCalls = {
     getAllReviewedPlaces: () => {
         const URL = config.API_ENDPOINT + '/';
@@ -31,7 +32,7 @@ const RestaurantCalls = {
             })
             .then(res => res.json());
     },
-
+/* posting new review */
     postNewReview: (placeId, newPlace) => {
         const URL = config.API_ENDPOINT + `/${placeId}/review`;
         return fetch(URL, {
@@ -54,6 +55,7 @@ const RestaurantCalls = {
             .then(res => res.json())
     },
 
+    /* getting all resturant reviwes by user */
     getAllRestaurantPlacesByUser: () => {
         const URL = config.API_ENDPOINT + '/user';
         return fetch(URL, {
@@ -97,7 +99,7 @@ const RestaurantCalls = {
 
     },
 
-
+/* editing resturnat details */
     editRestaurantPlace: (placeId, updatedInfo) => {
         const URL = config.API_ENDPOINT + `/edit/${placeId}`;
        
@@ -120,7 +122,7 @@ const RestaurantCalls = {
             })
             .then(res => res.json())
     },
-
+/* deleting resturant details */
     deleteRestaurantPlace: (placeId) => {
         const URL = config.API_ENDPOINT + `/place/delete/${placeId}`;
         return fetch(URL, {

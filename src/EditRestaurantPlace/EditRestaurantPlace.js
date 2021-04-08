@@ -7,6 +7,7 @@ import YelpRating from '../YelpRating/YelpRating';
 import './EditRestaurantPlace.css';
 import { animateScroll as scroll } from 'react-scroll'
 
+//edit resturant details here
 export default class EditRestaurantPlace extends React.Component {
     static contextType = RestaurantContext;
     constructor(e) {

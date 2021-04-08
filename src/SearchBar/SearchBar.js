@@ -7,7 +7,7 @@ export default function SearchBar(props) {
         e.preventDefault();
         props.history.push('/search')
     }
-
+/* adding rest from search button on the right */
     return (
         <div>
             <div className='bar'>

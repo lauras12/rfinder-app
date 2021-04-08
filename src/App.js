@@ -14,6 +14,7 @@ import EditReview from './EditRestaurantPlace/EditRestaurantPlace';
 import Footer from './Footer/Footer';
 import SearchBar from './SearchBar/SearchBar';
 
+/* listing all of the routes */
 export default class App extends React.Component {
   render() {
 

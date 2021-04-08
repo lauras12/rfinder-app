@@ -2,7 +2,7 @@
 import React from 'react';
 import ReviewedListItem from '../ReviewedListItem/ReviewedListItem';
 
-
+/*  */
 const ListHelpers = {
     sortDisplay: (list) => {
         const reviews = list.map(pl => {

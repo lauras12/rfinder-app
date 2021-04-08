@@ -10,7 +10,7 @@ export default class Nav extends React.Component {
   }
 
   render() {
-
+/* top nav bar */
     const token = TokenService.hasAuthToken(config.TOKEN_KEY)
     if (token) {
       return (

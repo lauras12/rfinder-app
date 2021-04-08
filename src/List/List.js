@@ -3,7 +3,7 @@ import RestaurantContext from '../Context';
 import ListItem from '../ListItem/ListItem';
 import './List.css';
 
-
+ /* component for searching restaurants */
 export default class List extends React.Component {
     static contextType = RestaurantContext;
     render() {

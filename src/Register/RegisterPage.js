@@ -11,7 +11,7 @@ export default class RegisterPage extends React.Component {
         history.push('/login');
     }
 
-    
+    /* res page */
     render() {
         let error = null;
         if (this.context.error) {
