@@ -8,23 +8,23 @@
 
 
 .finds {
-    color: #FDF8F5;
+    color: black;
 }
 .font {
-    color: #FDF8F5;
+    color: #266150;
     padding: 3px;
 }
 .h-text {
     line-height: 1.6;
     font-family: 'Montserrat', sans-serif;
-    color: #FDF8F5;
+    color: #266150;
 }
 span {
     color: #266150;
 }
 
 .des {
-    color: #4F4846;
+    color: black;
 }
 
 @media (min-width: 600px) {
